@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Laravel",
+    "url": "https://laravel.com",
+    "last_version": "9.2",
+    "color": "#FF2D20"
+  },
+  {
+    "name": "PHP",
+    "url": "https://www.php.net",
+    "last_version": "8.1",
+    "color": "#777BB4"
+  },
+  {
+    "name": "Livewire",
+    "url": "https://laravel-livewire.com",
+    "last_version": "2.10",
+    "color": "#4E56A6"
+  },
+  {
+    "name": "Meilisearch",
+    "url": "https://www.meilisearch.com",
+    "last_version": "0.28",
+    "color": "#ff1786"
+  },
+  {
+    "name": "Nuxt.js",
+    "url": "https://v3.nuxtjs.org",
+    "last_version": "3",
+    "color": "#00DC82"
+  },
+  {
+    "name": "TypeScript",
+    "url": "https://www.typescriptlang.org/",
+    "last_version": "4.7",
+    "color": "#3178C6"
+  }
+]
