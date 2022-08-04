@@ -1,9 +1,11 @@
+import type { ChainedCommands } from '@tiptap/core'
 import { Editor } from '@tiptap/core'
 import StarterKit from '@tiptap/starter-kit'
 import Typography from '@tiptap/extension-typography'
 import CharacterCount from '@tiptap/extension-character-count'
-import type { ActionButton, Commandable } from './tiptap-actions'
-import { Extras, Marks, Nodes } from './tiptap-actions'
+import Link from '@tiptap/extension-link'
+import type { ActionButton } from './tiptap-actions'
+import { ExecuteCommand, Extras, Marks, Nodes } from './tiptap-actions'
 
 let refs: {
   editorReference: HTMLElement
@@ -17,7 +19,7 @@ let editor: Editor
  *
  * Helped with: https://github.com/ueberdosis/tiptap/issues/1515#issuecomment-903095273
  */
-const tiptap = () => ({
+const Tiptap = () => ({
   content: '<p>This is where the content goes</p>',
   actions: [] as ActionButton[],
   updatedAt: Date.now(),
@@ -38,6 +40,7 @@ const tiptap = () => ({
         //   limit: this.limit,
         // }),
         CharacterCount,
+        Link,
       ],
       content: this.content,
       onCreate: () => {
@@ -60,19 +63,19 @@ const tiptap = () => ({
       Marks.italic,
       Marks.strike,
       Marks.code,
+      Marks.link,
       Nodes.h1,
       Nodes.h2,
       Nodes.h3,
-      Extras.seperator,
+      Extras.separator,
       Nodes.codeBlock,
       Nodes.blockquote,
       Nodes.bulletList,
       Nodes.orderedList,
-      Nodes.hardBreak,
       Nodes.horizontalRule,
       Nodes.hardBreak,
-      Extras.seperator,
-      Extras.clearFormat,
+      Extras.separator,
+      Extras.clearNodes,
       Extras.redo,
       Extras.undo,
     ]
@@ -80,57 +83,11 @@ const tiptap = () => ({
   isActive(action: ActionButton) {
     return editor.isActive(action.command, action.params)
   },
+  isChainedCommands(method: ChainedCommands): method is ChainedCommands {
+    return (<ChainedCommands>method).run() !== undefined
+  },
   command(action: ActionButton) {
-    const command = action.command
-
-    const methods: Commandable = {
-      bold: editor.chain().toggleBold().focus(),
-      italic: editor.chain().toggleItalic().focus(),
-      strike: editor.chain().toggleStrike().focus(),
-      code: editor.chain().toggleCode().focus(),
-      highlight: undefined,
-      link: undefined,
-      subscript: undefined,
-      superscript: undefined,
-      textstyle: undefined,
-      underline: undefined,
-      blockquote: editor.chain().focus().toggleBlockquote(),
-      bulletList: editor.chain().focus().toggleBulletList(),
-      codeBlock: editor.chain().focus().toggleCodeBlock(),
-      document: undefined,
-      emoji: undefined,
-      hardBreak: undefined,
-      hashtag: undefined,
-      heading: undefined,
-      h1: undefined,
-      h2: undefined,
-      h3: undefined,
-      h4: undefined,
-      h5: undefined,
-      h6: undefined,
-      horizontalRule: undefined,
-      image: undefined,
-      mention: undefined,
-      orderedList: undefined,
-      paragraph: undefined,
-      table: undefined,
-      tableRow: undefined,
-      tableCell: undefined,
-      taskList: undefined,
-      taskItem: undefined,
-      text: undefined,
-      youTube: undefined,
-      clearFormat: undefined,
-      undo: editor.chain().focus().undo(),
-      redo: editor.chain().focus().redo(),
-      seperator: undefined,
-    }
-
-    const method = methods[command]
-    if (method)
-      return method.run()
-
-    return method
+    ExecuteCommand(editor, action)
   },
   countCharacters() {
     return editor.storage.characterCount.characters()
@@ -140,4 +97,4 @@ const tiptap = () => ({
   },
 })
 
-export default tiptap
+export default Tiptap
