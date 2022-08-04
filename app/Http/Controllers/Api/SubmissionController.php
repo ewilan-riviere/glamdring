@@ -45,10 +45,10 @@ class SubmissionController extends Controller
 
         return response()->json([
             'message' => $success ? 'Submssion received.' : 'Submission failed.',
-            'success' => [
-                'honeypot' => $select_honeypot,
-                'domain' => $valid_domain,
-            ],
+            // 'success' => [
+            //     'honeypot' => $select_honeypot,
+            //     'domain' => $valid_domain,
+            // ],
             'submission' => [
                 'name' => $submission->name,
                 'email' => $submission->email,
