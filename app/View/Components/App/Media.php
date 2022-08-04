@@ -18,7 +18,7 @@ class Media extends Component
         public bool $iframe = false,
         public ?string $width = '100%',
         public ?string $height = '360',
-        public bool $preflight= false,
+        public bool $preflight = false,
         public ?string $preflight_class = '',
         public ?string $allow = '',
         public ?string $id = '',
