@@ -1,4 +1,3 @@
-import { Editor } from '@tiptap/core'
 import { Alpine as AlpineType } from 'alpinejs'
 
 /**
@@ -8,7 +7,6 @@ declare global {
   const Alpine: AlpineType
   interface Window {
     Alpine: AlpineType
-    setupEditor: any
   }
 }
 

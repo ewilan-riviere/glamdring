@@ -14,11 +14,10 @@ export default defineConfig({
         'resources/ts/app.ts',
         'resources/css/filament.css',
       ],
-      refresh: true,
-      // refresh: [
-      //   ...refreshPaths,
-      //   'app/Http/Livewire/**',
-      // ],
+      refresh: [
+        ...refreshPaths,
+        'app/Http/Livewire/**',
+      ],
     }),
   ],
   optimizeDeps: {
