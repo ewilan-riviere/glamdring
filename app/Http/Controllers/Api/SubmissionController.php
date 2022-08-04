@@ -18,7 +18,7 @@ class SubmissionController extends Controller
         $valid_domain = false;
 
         $domain = parse_url($request->headers->get('origin'));
-        if (! in_array($domain['host'], config('mail.ip_list'))) {
+        if (! in_array($domain['host'], config('mail.ip.list'))) {
             $valid_domain = true;
         }
 
