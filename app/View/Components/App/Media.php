@@ -20,8 +20,8 @@ class Media extends Component
         public ?string $height = '360',
         public bool $preflight= false,
         public ?string $preflight_class = '',
+        public ?string $allow = '',
         public ?string $id = '',
-
     ) {
     }
 

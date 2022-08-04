@@ -27,17 +27,14 @@
             </div>
             <!-- Action buttons -->
             <div class="flex flex-col space-y-2 sm:flex-row xl:flex-col">
-                {{-- <button type="button"
-                    class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:ring-offset-gray-900 xl:w-full">
-                    New Project
-                </button>
-                <button type="button"
-                    class="text-light mt-3 inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:border-gray-600 dark:ring-offset-gray-900 sm:mt-0 sm:ml-3 xl:ml-0 xl:mt-3 xl:w-full">
-                    Invite Team
-                </button> --}}
-                <x-app.button>
-                    New Project
-                </x-app.button>
+                <x-app.dialog>
+                    <x-slot:trigger>
+                        <x-app.button>
+                            New Project
+                        </x-app.button>
+                    </x-slot:trigger>
+                    Content
+                </x-app.dialog>
                 <x-app.button color="secondary">
                     Invite Team
                 </x-app.button>

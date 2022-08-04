@@ -5,13 +5,18 @@ const Media = () => ({
   media: {} as HTMLImageElement | HTMLIFrameElement,
   src: '',
   placeholderSrc: '/default.webp',
+  allow: '',
+  defaultAllow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
   options: {
     threshold: 1.0,
     rootMargin: '0px 0px 100px 0px',
   } as IntersectionObserverInit,
 
-  boot(id: string) {
+  boot(id: string, allow: string | undefined) {
     this.id = id
+
+    if (allow)
+      this.defaultAllow = allow
 
     const el = document.getElementById(id)
     if (el) {
@@ -54,6 +59,7 @@ const Media = () => ({
 
     this.media.onload = () => {
       this.media.classList.remove('hidden')
+      this.media.setAttribute('allow', this.defaultAllow)
       this.placeholder.classList.add('opacity-0')
       this.placeholder.classList.remove('opacity-100')
     }

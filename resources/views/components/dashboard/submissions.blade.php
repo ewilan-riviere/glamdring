@@ -2,12 +2,6 @@
 <x-dashboard.entities-list>
     @foreach ($submissions as $submission)
         <li>
-            {{-- <x-app.dialog>
-                <x-slot:trigger>
-                    dialog
-                </x-slot:trigger>
-                Content
-            </x-app.dialog> --}}
             <x-app.slide-over :title="$submission->name">
                 <x-slot:trigger>
                     <div

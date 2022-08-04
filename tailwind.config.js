@@ -9,7 +9,6 @@ module.exports = {
     './vendor/laravel/jetstream/**/*.blade.php',
     './storage/framework/views/*.php',
     './app/View/Components/**/*.php',
-    './resources/**/*.blade.php',
     './vendor/filament/**/*.blade.php',
   ],
 

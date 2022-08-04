@@ -4,7 +4,7 @@ $class = $attributes?->get('class');
 
 <div id="{{ $id }}"
     x-data="media"
-    x-init="boot('{{ $id }}')"
+    x-init="boot('{{ $id }}', '{{ $allow }}')"
     class="lazy-media relative my-2">
 
     <div @class([
@@ -27,7 +27,7 @@ $class = $attributes?->get('class');
             title="{{ $alt }}"
             @class(['lazy-media-media', $class, $preflight_class => $preflight])
             frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            :allow="allow"
             allowfullscreen
             loading="lazy"></iframe>
     @else
