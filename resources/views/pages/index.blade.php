@@ -3,7 +3,7 @@
         <x-dashboard.profile />
     </x-slot:left>
 
-    <x-dashboard.projects />
+    <livewire:list.projects />
 
     <x-slot:right>
         <x-dashboard.activity />

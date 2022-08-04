@@ -40,7 +40,7 @@ switch ($width) {
         class="{{ $width }} {{ $alignmentClasses }} {{ $dropdownClasses }} absolute z-50"
         style="display: none;">
         <div
-            class="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800 dark:text-white">
+            class="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800 dark:text-white">
             {{ $content }}
         </div>
     </div>

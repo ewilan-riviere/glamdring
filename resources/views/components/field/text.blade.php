@@ -1,4 +1,4 @@
-{{-- <div>
+<div>
     <label for="{{ $name }}"
         class="block text-sm font-medium text-gray-700 dark:text-gray-300">
         @if ($label)
@@ -34,12 +34,4 @@
         @endif
     </div>
     <x-field.error :name="$name" />
-</div> --}}
-
-<input id="{{ $name }}"
-    name="{{ $name }}"
-    type="{{ $type }}"
-    autocomplete="{{ $name }}"
-    required="{{ $required }}"
-    placeholder="{{ $placeholder }}"
-    value="{{ $value }}" />
+</div>

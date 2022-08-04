@@ -27,15 +27,18 @@
             </div>
             <!-- Action buttons -->
             <div class="flex flex-col space-y-2 sm:flex-row xl:flex-col">
-                <livewire:form.project-form />
-                <x-app.dialog>
+                {{-- <livewire:form.project-form /> --}}
+                {{-- <x-app.dialog>
                     <x-slot:trigger>
                         <x-app.button>
                             New Project
                         </x-app.button>
                     </x-slot:trigger>
                     <livewire:form.project-form />
-                </x-app.dialog>
+                </x-app.dialog> --}}
+                <x-app.button>
+                    New Project
+                </x-app.button>
                 <x-app.button color="secondary">
                     Invite Team
                 </x-app.button>
