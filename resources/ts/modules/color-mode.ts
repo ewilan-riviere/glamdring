@@ -4,7 +4,7 @@ interface ModeElement {
   key: string
 }
 
-const colorMode = () => ({
+const ColorMode = () => ({
   mode: 'light' as Mode,
   list: [
     {
@@ -49,4 +49,4 @@ const colorMode = () => ({
   },
 })
 
-export default colorMode
+export default ColorMode

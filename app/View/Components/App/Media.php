@@ -3,8 +3,9 @@
 namespace App\View\Components\App;
 
 use Illuminate\View\Component;
+use Str;
 
-class Img extends Component
+class Media extends Component
 {
     /**
      * Create a new component instance.
@@ -14,6 +15,13 @@ class Img extends Component
         public ?string $color = '#ffffff',
         public ?string $alt = '',
         public ?string $placeholder = '/default.webp',
+        public bool $iframe = false,
+        public ?string $width = '100%',
+        public ?string $height = '360',
+        public bool $preflight= false,
+        public ?string $preflight_class = '',
+        public ?string $id = '',
+
     ) {
     }
 
@@ -24,6 +32,9 @@ class Img extends Component
      */
     public function render()
     {
-        return view('components.app.img');
+        $this->id = Str::random();
+        $this->preflight_class = 'rounded-md px-5';
+
+        return view('components.app.media');
     }
 }

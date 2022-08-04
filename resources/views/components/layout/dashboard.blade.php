@@ -1,5 +1,7 @@
 <x-app>
-    <!-- Background color split screen for large screens -->
+    <div class="fixed top-0 right-0 z-40">
+        <x-app.color-mode />
+    </div>
     <div class="fixed top-0 right-0 h-full w-1/2 bg-gray-50 dark:bg-gray-900"
         aria-hidden="true"></div>
     <div class="relative flex min-h-full flex-col">
@@ -19,5 +21,4 @@
             </div>
         </div>
     </div>
-
 </x-app>

@@ -2,17 +2,15 @@ import './bootstrap'
 
 import Alpine from 'alpinejs'
 
-import colorMode from './modules/color-mode'
-import lazyMedia from './modules/lazy-media'
+import Media from './modules/media'
+import ColorMode from './modules/color-mode'
 // import favicon from './modules/favicon'
-import tiptap from './modules/tiptap'
-
-lazyMedia()
-// favicon()
+import Tiptap from './modules/tiptap'
 
 window.Alpine = Alpine
 
-Alpine.data('colorMode', colorMode)
-Alpine.data('tiptap', tiptap)
+Alpine.data('colorMode', ColorMode)
+Alpine.data('tiptap', Tiptap)
+Alpine.data('media', Media)
 
 Alpine.start()
