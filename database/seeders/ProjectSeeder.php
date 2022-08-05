@@ -28,9 +28,9 @@ class ProjectSeeder extends Seeder
         //     $project = Project::create((array) $item?->project);
 
         //     /**
-        //      * Set image.
+        //      * Set avatar.
         //      */
-        //     $original_path = $item?->project?->image;
+        //     $original_path = $item?->project?->avatar;
         //     $path = str_replace('projects/', '', $original_path);
         //     $file = File::get(database_path("seeders/media/projects/{$path}"));
         //     File::makeDirectory(public_path('storage/projects'), 0755, true, true);
@@ -48,7 +48,7 @@ class ProjectSeeder extends Seeder
         //             array_push($repositories, Repository::create((array) $repository));
         //         }
         //         $project->repositories()->saveMany($repositories);
-        //         $project->mainRepository()->associate($repositories[0]);
+        //         $project->repositoryMain()->associate($repositories[0]);
         //     }
 
         //     if (property_exists($item, 'technologies')) {
@@ -57,7 +57,7 @@ class ProjectSeeder extends Seeder
         //             array_push($technologies, Technology::whereSlug($technology)->first());
         //         }
         //         $project->technologies()->saveMany($technologies);
-        //         $project->mainTechnology()->associate($technologies[0]);
+        //         $project->technologyMain()->associate($technologies[0]);
         //     }
 
         //     if (property_exists($item, 'websites')) {
@@ -67,7 +67,7 @@ class ProjectSeeder extends Seeder
         //             array_push($websites, Website::create((array) $website));
         //         }
         //         $project->websites()->saveMany($websites);
-        //         $project->mainWebsite()->associate($websites[0]);
+        //         $project->websiteMain()->associate($websites[0]);
         //     }
 
         //     $project->saveQuietly();

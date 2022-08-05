@@ -10,6 +10,35 @@ use App\Services\GitForgeService\GitlabForge;
 use App\Services\GitForgeService\IGitForge;
 use Illuminate\Support\Collection;
 
+// id: int
+// name: string
+// path: string
+//   - gitlab:path
+//   - github:name
+// description: string
+// default_branch: string
+// created_at: datetime
+// updated_at: datetime
+//   - gitlab:last_activity_at
+//   - github:updated_at
+// web_url: string
+//   - gitlab:web_url
+//   - github:html_url
+// clone_url: string
+//   - gitlab:http_url_to_repo
+//   - github:clone_url
+// avatar_url: string (gitlab)
+// readme_url: string (gitlab)
+// visibility: string
+// is_open_source: boolean
+//   - visibility => 'public'
+
+// language: string (github)
+// languages_url: string[] (github)
+
+// tags: string[]
+//   - gitlab:tag_list
+//   - github:topics
 class GitForgeService
 {
     public IGitForge $forge;

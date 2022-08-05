@@ -13,7 +13,7 @@ class CustomersChart extends LineChartWidget
 
     protected function getData(): array
     {
-        $projects = Project::pluck('begin_at');
+        $projects = Project::pluck('git_created_at');
         // dd($projects->toArray());
 
         return [

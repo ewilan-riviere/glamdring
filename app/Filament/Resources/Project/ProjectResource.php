@@ -187,7 +187,7 @@ class ProjectResource extends Resource
                                         ->helperText('Set as open source project.')
                                         ->default(false),
                                 ]),
-                            DatePicker::make('begin_at')
+                            DatePicker::make('git_created_at')
                                 ->label('Begin at')
                                 ->default(now())
                                 ->required(),
@@ -200,10 +200,10 @@ class ProjectResource extends Resource
                     $layout::make()
                         ->schema([
                             Placeholder::make('Associations'),
-                            Select::make('main_technology_id')
-                                ->relationship('mainTechnology', 'name')
+                            Select::make('technology_id')
+                                ->relationship('technologyMain', 'name')
                                 ->label('Main technology'),
-                            Select::make('main_repository_id')
+                            Select::make('repository_id')
                                 ->options(function (Component $component) {
                                     /** @var Project */
                                     $model = $component->getRecord();
@@ -215,7 +215,7 @@ class ProjectResource extends Resource
                                     ;
                                 })
                                 ->label('Main repository'),
-                            Select::make('main_website_id')
+                            Select::make('website_id')
                                 ->options(function (Component $component) {
                                     /** @var Project */
                                     $model = $component->getRecord();
@@ -267,7 +267,7 @@ class ProjectResource extends Resource
                 ->enum(ProjectStatusEnum::toList())
                 ->sortable()
                 ->toggleable(),
-            TextColumn::make('begin_at')
+            TextColumn::make('git_created_at')
                 ->label('Begin date')
                 ->date()
                 ->sortable(),

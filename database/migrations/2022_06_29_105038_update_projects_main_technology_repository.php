@@ -12,22 +12,22 @@ return new class() extends Migration
     public function up()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->foreignId('main_technology_id')->after('pipeline')->nullable();
-            $table->foreign('main_technology_id')
+            $table->foreignId('technology_id')->after('pipeline')->nullable();
+            $table->foreign('technology_id')
                 ->references('id')
                 ->on('technologies')
                 ->nullOnDelete()
             ;
 
-            $table->foreignId('main_repository_id')->after('main_technology_id')->nullable();
-            $table->foreign('main_repository_id')
+            $table->foreignId('repository_id')->after('technology_id')->nullable();
+            $table->foreign('repository_id')
                 ->references('id')
                 ->on('repositories')
                 ->nullOnDelete()
             ;
 
-            $table->foreignId('main_website_id')->after('main_repository_id')->nullable();
-            $table->foreign('main_website_id')
+            $table->foreignId('website_id')->after('repository_id')->nullable();
+            $table->foreign('website_id')
                 ->references('id')
                 ->on('websites')
                 ->nullOnDelete()
@@ -41,9 +41,9 @@ return new class() extends Migration
     public function down()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->dropColumn('main_technology_id');
-            $table->dropColumn('main_repository_id');
-            $table->dropColumn('main_website_id');
+            $table->dropColumn('technology_id');
+            $table->dropColumn('repository_id');
+            $table->dropColumn('website_id');
         });
     }
 };

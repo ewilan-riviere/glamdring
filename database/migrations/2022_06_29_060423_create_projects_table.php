@@ -13,15 +13,16 @@ return new class() extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->integer('git_id')->nullable();
             $table->string('title')->nullable();
             $table->string('slug')->unique()->nullable();
             $table->text('description')->nullable();
-            $table->string('image')->nullable();
+            $table->string('avatar')->nullable();
             $table->string('pipeline')->nullable();
             $table->string('project_status')->nullable();
             $table->boolean('is_open_source')->default(0);
             $table->string('main_branch')->nullable();
-            $table->dateTime('begin_at')->nullable();
+            $table->dateTime('git_created_at')->nullable();
             $table->timestamps();
         });
     }

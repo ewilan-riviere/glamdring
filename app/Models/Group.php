@@ -13,7 +13,7 @@ class Group extends Model
     use Sluggable;
 
     protected $fillable = [
-        'title',
+        'name',
         'slug',
         'description',
     ];

@@ -8,7 +8,7 @@ trait Sluggable
 {
     private static $__sluggable = [
         'slug_column' => 'slug',
-        'slug_from_column' => 'title',
+        'slug_from_column' => 'name',
     ];
 
     protected static function bootSluggable()

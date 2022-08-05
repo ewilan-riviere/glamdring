@@ -16,34 +16,40 @@ class Project extends Model
     use Sluggable;
 
     protected $fillable = [
-        'title',
+        'git_id',
+        'name',
         'slug',
+        'path',
         'description',
-        'image',
+        'default_branch',
+        'git_created_at',
+        'git_updated_at',
+        'web_url',
+        'clone_url',
+        'avatar_url',
+        'readme_raw',
+        'visibility',
         'is_open_source',
-        'pipeline',
-        'begin_at',
-        'main_repository_id',
-        'main_technology_id',
-        'main_website_id',
+
         'project_status',
-        'main_branch',
+        'pipeline',
+
+        'repository_id',
+        'technology_id',
+        'website_id',
     ];
 
     protected $casts = [
+        'git_id' => 'integer',
+        'git_created_at' => 'datetime:Y-m-d',
+        'git_updated_at' => 'datetime:Y-m-d',
         'is_open_source' => 'boolean',
-        'begin_at' => 'datetime:Y-m-d',
         'project_status' => ProjectStatusEnum::class,
     ];
 
     protected $withCount = [
         'websites',
     ];
-
-    public function websites(): HasMany
-    {
-        return $this->hasMany(Website::class);
-    }
 
     public function group(): BelongsTo
     {
@@ -60,17 +66,22 @@ class Project extends Model
         return $this->belongsToMany(Technology::class);
     }
 
-    public function mainRepository(): BelongsTo
+    public function websites(): HasMany
+    {
+        return $this->hasMany(Website::class);
+    }
+
+    public function repository(): BelongsTo
     {
         return $this->belongsTo(Repository::class);
     }
 
-    public function mainTechnology(): BelongsTo
+    public function technology(): BelongsTo
     {
         return $this->belongsTo(Technology::class);
     }
 
-    public function mainWebsite(): BelongsTo
+    public function website(): BelongsTo
     {
         return $this->belongsTo(Website::class);
     }

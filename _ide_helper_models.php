@@ -90,49 +90,53 @@ namespace App\Models{
  * App\Models\Project
  *
  * @property int $id
+ * @property int|null $git_id
  * @property string|null $title
  * @property string|null $slug
  * @property string|null $description
- * @property string|null $image
+ * @property string|null $avatar
  * @property string|null $pipeline
- * @property int|null $main_technology_id
- * @property int|null $main_repository_id
+ * @property int|null $technology_id
+ * @property int|null $repository_id
  * @property int|null $group_id
- * @property int|null $main_website_id
+ * @property int|null $website_id
  * @property \App\Enums\ProjectStatusEnum|null $project_status
  * @property bool $is_open_source
- * @property \Illuminate\Support\Carbon|null $begin_at
+ * @property string|null $main_branch
+ * @property \Illuminate\Support\Carbon|null $git_created_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Group|null $group
- * @property-read \App\Models\Repository|null $mainRepository
- * @property-read \App\Models\Technology|null $mainTechnology
- * @property-read \App\Models\Website|null $mainWebsite
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Repository[] $repositories
  * @property-read int|null $repositories_count
+ * @property-read \App\Models\Repository|null $repository
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Technology[] $technologies
  * @property-read int|null $technologies_count
+ * @property-read \App\Models\Technology|null $technology
+ * @property-read \App\Models\Website|null $website
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Website[] $websites
  * @property-read int|null $websites_count
  * @method static \Database\Factories\ProjectFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Project newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Project newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Project query()
- * @method static \Illuminate\Database\Eloquent\Builder|Project whereBeginAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereAvatar($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereGitCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereGitId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereGroupId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Project whereImage($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereIsOpenSource($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Project whereMainRepositoryId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Project whereMainTechnologyId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Project whereMainWebsiteId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereMainBranch($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project wherePipeline($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereProjectStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereRepositoryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereTechnologyId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereWebsiteId($value)
  */
 	class Project extends \Eloquent {}
 }

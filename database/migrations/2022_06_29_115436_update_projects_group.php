@@ -12,7 +12,7 @@ return new class() extends Migration
     public function up()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->foreignId('group_id')->after('main_repository_id')->nullable();
+            $table->foreignId('group_id')->after('repository_id')->nullable();
             $table->foreign('group_id')
                 ->references('id')
                 ->on('groups')
