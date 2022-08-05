@@ -27,6 +27,7 @@ class Project extends Model
         'main_technology_id',
         'main_website_id',
         'project_status',
+        'main_branch',
     ];
 
     protected $casts = [

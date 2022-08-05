@@ -17,10 +17,14 @@ const Dialog = () => ({
   toggle() {
     this.isOpened = !this.isOpened
 
-    if (this.isOpened)
+    if (this.isOpened) {
       document.body.appendChild(this.elContent)
-    else
+      document.body.classList.add('overflow-hidden')
+    }
+    else {
       document.getElementById(this.idWrapper)?.appendChild(this.elContent)
+      document.body.classList.remove('overflow-hidden')
+    }
   },
 })
 

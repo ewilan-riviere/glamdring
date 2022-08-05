@@ -18,6 +18,7 @@ class ProjectForm extends Component
         $data = $this->validate();
 
         Project::create($data);
+        $this->emit('projectsListUpdate');
     }
 
     public function render()

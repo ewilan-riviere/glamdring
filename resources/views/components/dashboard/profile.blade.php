@@ -29,15 +29,13 @@
             <div class="flex flex-col space-y-2 sm:flex-row xl:flex-col">
                 <x-dialog>
                     <x-slot:trigger>
-                        <x-app.button>
+                        <x-button>
                             New Project
-                        </x-app.button>
+                        </x-button>
                     </x-slot:trigger>
                     <livewire:form.project-form />
                 </x-dialog>
-                <x-app.button color="secondary">
-                    Invite Team
-                </x-app.button>
+                <livewire:forge.sync />
             </div>
         </div>
         <!-- Meta info -->

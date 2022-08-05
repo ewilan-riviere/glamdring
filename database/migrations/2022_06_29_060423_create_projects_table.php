@@ -20,6 +20,7 @@ return new class() extends Migration
             $table->string('pipeline')->nullable();
             $table->string('project_status')->nullable();
             $table->boolean('is_open_source')->default(0);
+            $table->string('main_branch')->nullable();
             $table->dateTime('begin_at')->nullable();
             $table->timestamps();
         });

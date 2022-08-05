@@ -8,37 +8,6 @@ $title = $attributes?->get('title');
         <h1 class="flex-1 text-lg font-medium">
             {{ $title }}
         </h1>
-        <x-icon-arrow-sm-up class="h-6 w-6 text-black dark:text-gray-400" />
-        <div class="relative">
-            <x-app.dropdown>
-                <x-slot name="trigger">
-                    <x-app.dropdown-button />
-                </x-slot>
-                <x-slot name="content">
-                    <div class="m-1.5">
-                        <button
-                            class="text-light block w-full rounded-md px-4 py-2 text-left text-sm transition-colors hover:bg-gray-50 dark:hover:bg-gray-700"
-                            role="menuitem"
-                            tabindex="-1"
-                            id="sort-menu-item-0"
-                            wire:click="byName">
-                            By title
-                        </button>
-                        <a href="#"
-                            class="text-light block px-4 py-2 text-sm"
-                            role="menuitem"
-                            tabindex="-1"
-                            id="sort-menu-item-1">Date
-                            modified</a>
-                        <a href="#"
-                            class="text-light block px-4 py-2 text-sm"
-                            role="menuitem"
-                            tabindex="-1"
-                            id="sort-menu-item-2">Date
-                            created</a>
-                    </div>
-                </x-slot>
-            </x-app.dropdown>
-        </div>
+        <livewire:filter.sorter />
     </div>
 </div>

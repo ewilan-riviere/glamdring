@@ -1,4 +1,4 @@
-<x-app.dropdown>
+<x-dropdown>
     <x-slot name="trigger">
         <button
             class="flex rounded-full border-2 border-transparent text-sm text-white transition-colors hover:border-gray-200 focus:border-gray-200 focus:outline-none">
@@ -39,4 +39,4 @@
             </form>
         </div>
     </x-slot>
-</x-app.dropdown>
+</x-dropdown>

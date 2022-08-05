@@ -8,6 +8,13 @@ enum GithubEndpointEnum: string
 {
     use LazyEnum;
 
-    case users = '/users';
-    case user = '/users/{param}';
+    case findAllUser = '/users';
+    case findUser = '/users/{param}';
+    case findAllUserRepository = '/users/{param}/repos';
+    case findUserRepository = '/users/{param}/repos/{param}';
+
+    // case findAllUser = '/users';
+    // case findUser = '/users/:id';
+    // case findAllUserRepository = '/groups/:id/projects';
+    // case findUserRepository = '/groups/:id/projects';
 }

@@ -58,9 +58,9 @@
                             </div>
 
                             <div>
-                                <x-app.button type="submit">
+                                <x-button type="submit">
                                     Sign in
-                                </x-app.button>
+                                </x-button>
                             </div>
                         </form>
                     </div>

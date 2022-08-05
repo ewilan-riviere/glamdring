@@ -6,11 +6,11 @@ use App\Models\ForgeUser;
 use App\Services\GitForgeService;
 
 /**
- * Docs: https://docs.gitlab.com/ee/api/
+ * Docs: https://developer.atlassian.com/cloud/bitbucket/rest/intro/
  */
-class GitlabForge implements IGitForge
+class BitbucketForge implements IGitForge
 {
-    public string $api_url = 'https://gitlab.com/api/v4';
+    public string $api_url = 'https://api.bitbucket.org/2.0';
 
     public HttpForge $http;
 
@@ -19,9 +19,9 @@ class GitlabForge implements IGitForge
     ) {
     }
 
-    public static function create(GitForgeService $service): GitlabForge
+    public static function create(GitForgeService $service): BitbucketForge
     {
-        $forge = new GitlabForge($service);
+        $forge = new BitbucketForge($service);
         $forge->http = HttpForge::create($forge);
 
         return $forge;
@@ -36,19 +36,19 @@ class GitlabForge implements IGitForge
 
     public function fetchUser(): GitForgeService
     {
-        $http = $this->http->get("/users/{$this->service->username}");
+        // $http = $this->http->get("/users/{$this->service->username}");
 
-        $raw = $http->body;
-        $this->service->forge_user = ForgeUser::convert($raw);
+        // $raw = $http->body;
+        // $this->service->forge_user = ForgeUser::convert($raw);
 
         return $this->service;
     }
 
     public function fetchRepositories(): GitForgeService
     {
-        $http = $this->http->get('/projects?owned=true');
-        $raw = $http->body;
-        dump($raw);
+        // $http = $this->http->get("/projects?owned=true");
+        // $raw = $http->body;
+
         return $this->service;
     }
 }

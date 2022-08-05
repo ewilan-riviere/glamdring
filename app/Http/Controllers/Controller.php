@@ -22,6 +22,7 @@ class Controller extends BaseController
         $service = Cache::get('service');
         if (! $service) {
             $service = GitForgeService::create();
+            $service->fetchUser();
             Cache::add('service', $service);
         }
         View::share('forge_user', $service->forge_user);

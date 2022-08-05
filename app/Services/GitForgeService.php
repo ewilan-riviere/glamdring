@@ -4,13 +4,18 @@ namespace App\Services;
 
 use App\Enums\GitForgeEnum;
 use App\Models\ForgeUser;
+use App\Models\Project;
 use App\Services\GitForgeService\GithubForge;
 use App\Services\GitForgeService\GitlabForge;
 use App\Services\GitForgeService\IGitForge;
+use Illuminate\Support\Collection;
 
 class GitForgeService
 {
     public IGitForge $forge;
+
+    /** @var Collection<int, Project> */
+    public ?Collection $projects;
 
     public function __construct(
         public GitForgeEnum $forge_type,
@@ -37,5 +42,17 @@ class GitForgeService
         };
 
         return $service;
+    }
+
+    public function fetchUser(): GitForgeService
+    {
+        $this->forge->fetchUser();
+        return $this;
+    }
+
+    public function fetchRepositories(): GitForgeService
+    {
+        $this->forge->fetchRepositories();
+        return $this;
     }
 }

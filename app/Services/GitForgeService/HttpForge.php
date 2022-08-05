@@ -17,20 +17,21 @@ class HttpForge
     public function __construct(
         public string $api_url,
         public string $api_token,
+        public array $headers,
     ) {
     }
 
-    public static function create(string $api_url, string $api_token): HttpForge
+    public static function create(IGitForge $forge): HttpForge
     {
-        return new HttpForge($api_url, $api_token);
+        return new HttpForge($forge->api_url, $forge->service->api_token, $forge->getHeaders());
     }
 
     public function get(string $endpoint)
     {
         $this->url = "{$this->api_url}{$endpoint}";
-        $this->response = Http::withHeaders([
-            'Authorization' => "token {$this->api_token}",
-        ])->get($this->url);
+        $this->response = Http::withHeaders($this->headers)
+            ->get($this->url)
+        ;
         $this->valid = $this->response->status() == 200;
         $this->body = json_decode($this->response->body());
 

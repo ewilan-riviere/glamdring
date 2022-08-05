@@ -14,5 +14,9 @@ interface IGitForge
 
     public static function create(GitForgeService $service): IGitForge;
 
+    public function getHeaders(): array;
+
     public function fetchUser(): GitForgeService;
+
+    public function fetchRepositories(): GitForgeService;
 }
