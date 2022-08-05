@@ -44,6 +44,7 @@
 
     @stack('modals')
     @stack('scripts')
+    {{-- <livewire:dialog /> --}}
     @livewireScripts
 </body>
 

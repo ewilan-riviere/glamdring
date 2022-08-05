@@ -1,5 +1,11 @@
-<div>
-    <input wire:model="message"
-        type="text">
-    <h1>{{ $message }}</h1>
-</div>
+<form wire:submit.prevent="save">
+    <x-field.text name="title"
+        label="Title"
+        wire:model="title"
+        required />
+    <div class="mt-2">
+        <x-app.button type="submit">
+            Save
+        </x-app.button>
+    </div>
+</form>

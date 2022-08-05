@@ -19,7 +19,8 @@ class Projects extends Component
     public function byName()
     {
         $this->projects = Project::orderBy('title', 'desc')
-            ->get();
+            ->get()
+        ;
     }
 
     public function render()

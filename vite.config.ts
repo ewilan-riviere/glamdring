@@ -4,7 +4,8 @@ import laravel, { refreshPaths } from 'laravel-vite-plugin'
 export default defineConfig({
   resolve: {
     alias: {
-      '~/app': './',
+      '~/': './',
+      '~/app': './resources',
     },
   },
   plugins: [

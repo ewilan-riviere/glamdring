@@ -15,6 +15,7 @@
     "filament/filament": "^2.0",
     "guzzlehttp/guzzle": "^7.2",
     "http-interop/http-factory-guzzle": "^1.2",
+    "itsgoingd/clockwork": "^5.1",
     "laravel/framework": "^9.19",
     "laravel/jetstream": "^2.10",
     "laravel/sanctum": "^2.14.1",
@@ -31,6 +32,7 @@
     "friendsofphp/php-cs-fixer": "^3.9",
     "laravel/pint": "^1.1",
     "laravel/sail": "^1.0.1",
+    "laravel/telescope": "^4.9",
     "mockery/mockery": "^1.4.4",
     "nunomaduro/collision": "^6.1",
     "nunomaduro/larastan": "^2.1",
@@ -110,7 +112,9 @@
   },
   "extra": {
     "laravel": {
-      "dont-discover": []
+      "dont-discover": [
+        "laravel/telescope"
+      ]
     }
   },
   "config": {

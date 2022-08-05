@@ -1,13 +1,19 @@
 <div>
-    <label for="{{ $name }}"
-        class="block text-sm font-medium text-gray-700 dark:text-gray-300">
-        @if ($label)
-            {{ $label }}
-            @if ($required)
-                <span class="text-red-600">*</span>
+    <div
+        class="flex items-center justify-between text-sm font-medium text-gray-700 dark:text-gray-300">
+        <label for="{{ $name }}"
+            class="block">
+            @if ($label)
+                {{ $label }}
+                @if ($required)
+                    <span class="text-red-600">*</span>
+                @endif
             @endif
-        @endif
-    </label>
+        </label>
+        <div class="italic">
+            <x-field.error :name="$name" />
+        </div>
+    </div>
     <div class="mt-1">
         @if ($multiline)
             <textarea id="{{ $name }}"
@@ -17,10 +23,9 @@
                 required="{{ $required }}"
                 placeholder="{{ $placeholder }}"
                 value="{{ $value }}"
-                x-model.lazy="form.{{ $name }}"
                 cols="30"
                 rows="10"
-                {{ $attributes->merge(['class' => 'appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600']) }}></textarea>
+                {{ $attributes->merge(['class' => $textarea_class]) }}></textarea>
         @else
             <input id="{{ $name }}"
                 name="{{ $name }}"
@@ -29,9 +34,7 @@
                 required="{{ $required }}"
                 placeholder="{{ $placeholder }}"
                 value="{{ $value }}"
-                x-model.lazy="form.{{ $name }}"
-                {{ $attributes->merge(['class' => 'appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600']) }} />
+                {{ $attributes->merge(['class' => $text_class]) }} />
         @endif
     </div>
-    <x-field.error :name="$name" />
 </div>
