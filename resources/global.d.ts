@@ -9,8 +9,8 @@ declare global {
   const Alpine: AlpineType
   interface Window {
     Alpine: AlpineType
-    axios: AxiosStatic
-    ziggy: typeof route
+    // axios: AxiosStatic
+    // ziggy: typeof route
   }
 }
 

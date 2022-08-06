@@ -1,8 +1,8 @@
-import './bootstrap'
+// import './bootstrap'
 
 import Alpine from 'alpinejs'
 
-import ziggy from 'ziggy-js'
+// import ziggy from 'ziggy-js'
 import Media from './modules/media'
 import ColorMode from './modules/color-mode'
 // import favicon from './modules/favicon'
@@ -12,7 +12,7 @@ import Project from './modules/project'
 import Submission from './modules/submission'
 
 window.Alpine = Alpine
-window.ziggy = ziggy
+// window.ziggy = ziggy
 
 Alpine.data('colorMode', ColorMode)
 Alpine.data('tiptap', Tiptap)
