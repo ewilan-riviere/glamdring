@@ -7,7 +7,6 @@ use App\Models\User;
 use App\Services\GitForgeService;
 use Auth;
 use Cache;
-use Illuminate\Http\Request;
 use View;
 
 class DashboardController extends Controller
@@ -23,6 +22,7 @@ class DashboardController extends Controller
         }
         View::share('forge_user', $service->forge_user);
         View::share('projects_count', Project::count());
+        View::share('token', '');
 
         $this->middleware('auth:sanctum');
         $this->middleware(function ($request, $next) {
@@ -38,6 +38,5 @@ class DashboardController extends Controller
 
             return $next($request);
         });
-
     }
 }
