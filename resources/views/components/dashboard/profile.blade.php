@@ -31,10 +31,10 @@ $git_icon = "icon-{$git}";
                 </div>
             </div>
             <!-- Action buttons -->
-            <div class="flex flex-col space-y-2 sm:flex-row xl:flex-col">
+            <div class="flex-col space-y-2 sm:flex-row xl:flex xl:flex-col">
                 <x-dialog>
                     <x-slot:trigger>
-                        <x-button>
+                        <x-button full>
                             New Project
                         </x-button>
                     </x-slot:trigger>
@@ -43,6 +43,7 @@ $git_icon = "icon-{$git}";
                 <livewire:forge.sync />
                 <x-button x-data="submission"
                     x-cloak
+                    full
                     @click="send">
                     <div x-show="loading"
                         class="absolute top-1/2 left-3 -translate-y-1/2">

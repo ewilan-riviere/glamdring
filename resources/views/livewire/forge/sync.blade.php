@@ -1,5 +1,6 @@
 <div class="relative">
     <x-button color="secondary"
+        full
         class="flex items-center"
         wire:click="sync">
         <div wire:loading

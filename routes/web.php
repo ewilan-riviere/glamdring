@@ -35,7 +35,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/', [MainController::class, 'index'])->name('dashboard');
+    Route::get('/', [MainController::class, 'index'])->name('dashboard.index');
     Route::get('/notes', [MainController::class, 'notes'])->name('dashboard.notes');
     Route::get('/submissions', [MainController::class, 'submissions'])->name('dashboard.submissions');
 });

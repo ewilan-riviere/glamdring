@@ -12,7 +12,6 @@ import Project from './modules/project'
 import Submission from './modules/submission'
 
 window.Alpine = Alpine
-// window.ziggy = ziggy
 
 Alpine.data('colorMode', ColorMode)
 Alpine.data('tiptap', Tiptap)
@@ -20,5 +19,6 @@ Alpine.data('media', Media)
 Alpine.data('dialog', Dialog)
 Alpine.data('project', Project)
 Alpine.data('submission', Submission)
+Alpine.store('sidebar', false)
 
 Alpine.start()

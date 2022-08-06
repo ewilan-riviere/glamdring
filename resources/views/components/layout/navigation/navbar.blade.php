@@ -2,14 +2,13 @@
     <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
             <!-- Logo section -->
-            <a href="/"
-                class="flex items-center px-2 lg:px-0 xl:w-64">
+            <div class="flex items-center px-2 lg:px-0 xl:w-64">
                 <div class="flex-shrink-0">
                     <img class="h-8 w-auto"
-                        src="/images/brand-icon-text-white.svg"
+                        src="https://tailwindui.com/img/logos/workflow-mark-indigo-300.svg"
                         alt="Workflow">
                 </div>
-            </a>
+            </div>
 
             <!-- Search section -->
             <div class="flex flex-1 justify-center lg:justify-end">
@@ -86,46 +85,17 @@
             </div>
             <!-- Links section -->
             <div class="hidden lg:block lg:w-80">
-                <div class="flex items-center justify-end space-x-2">
-                    <div class="flex space-x-2">
-                        <x-layout.navigation.item :route="route('dashboard.notes')"
-                            label="Notes" />
-                        <x-layout.navigation.item :route="route('dashboard.submissions')"
-                            label="Submissions" />
-                        <x-layout.navigation.item :route="route('filament.pages.dashboard')"
-                            label="Admin"
-                            external />
+                <div class="flex items-center justify-end">
+                    <div class="flex">
+                        <a href="#"
+                            class="rounded-md px-3 py-2 text-sm font-medium text-indigo-200 hover:text-white"
+                            aria-current="page">Dashboard</a>
+
+                        <a href="#"
+                            class="rounded-md px-3 py-2 text-sm font-medium text-indigo-200 hover:text-white">Domains</a>
                     </div>
-                    <x-layout.profile />
+                    <x-layout.profile class="relative ml-4 flex-shrink-0" />
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="lg:hidden"
-        id="mobile-menu">
-        <div class="space-y-1 px-2 pt-2 pb-3">
-            <!-- Current: "text-white bg-indigo-800", Default: "text-indigo-200 hover:text-indigo-100 hover:bg-indigo-600" -->
-            <a href="#"
-                class="block rounded-md bg-indigo-800 px-3 py-2 text-base font-medium text-white"
-                aria-current="page">Dashboard</a>
-
-            <a href="#"
-                class="block rounded-md px-3 py-2 text-base font-medium text-indigo-200 hover:bg-indigo-600 hover:text-indigo-100">Domains</a>
-        </div>
-        <div class="border-t border-indigo-800 pt-4 pb-3">
-            <div class="space-y-1 px-2">
-                <a href="#"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-indigo-200 hover:bg-indigo-600 hover:text-indigo-100">Your
-                    Profile</a>
-
-                <a href="#"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-indigo-200 hover:bg-indigo-600 hover:text-indigo-100">Settings</a>
-
-                <a href="#"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-indigo-200 hover:bg-indigo-600 hover:text-indigo-100">Sign
-                    out</a>
             </div>
         </div>
     </div>
