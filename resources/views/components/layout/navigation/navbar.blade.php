@@ -43,7 +43,9 @@
                 <button type="button"
                     class="inline-flex items-center justify-center rounded-md bg-indigo-600 p-2 text-indigo-400 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600"
                     aria-controls="mobile-menu"
-                    aria-expanded="false">
+                    aria-expanded="false"
+                    x-data
+                    @click="$store.sidebar = !$store.sidebar">
                     <span class="sr-only">Open main menu</span>
                     <!--
       Icon when menu is closed.
@@ -87,12 +89,10 @@
             <div class="hidden lg:block lg:w-80">
                 <div class="flex items-center justify-end">
                     <div class="flex">
-                        <a href="#"
-                            class="rounded-md px-3 py-2 text-sm font-medium text-indigo-200 hover:text-white"
-                            aria-current="page">Dashboard</a>
-
-                        <a href="#"
-                            class="rounded-md px-3 py-2 text-sm font-medium text-indigo-200 hover:text-white">Domains</a>
+                        <x-layout.navigation.item
+                            href="{{ route('dashboard.submissions') }}">
+                            Submissions
+                        </x-layout.navigation.item>
                     </div>
                     <x-layout.profile class="relative ml-4 flex-shrink-0" />
                 </div>

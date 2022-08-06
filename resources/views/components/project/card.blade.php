@@ -1,7 +1,6 @@
 <x-app.slide-over :title="$project->name">
     <x-slot:trigger>
-        <li x-data="project"
-            x-init="boot('{{ $project->git_id }}', '{{ $token }}')"
+        <li
             class="relative cursor-pointer py-5 pl-4 pr-6 hover:bg-gray-50 dark:hover:bg-gray-800 sm:py-6 sm:pl-6 lg:pl-8 xl:pl-6">
             <div class="flex items-center justify-between space-x-4">
                 <!-- Repo name and link -->

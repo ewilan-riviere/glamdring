@@ -1,6 +1,7 @@
 <x-app>
     <div class="fixed top-0 right-0 h-full w-1/2"
         aria-hidden="true"></div>
+    <x-layout.navigation.sidebar />
     <div class="relative flex min-h-screen flex-col">
         <x-layout.navigation.navbar />
         <div class="mx-auto w-full max-w-7xl flex-grow lg:flex xl:px-8">

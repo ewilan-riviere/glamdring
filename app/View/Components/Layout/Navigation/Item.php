@@ -13,9 +13,8 @@ class Item extends Component
      * @return void
      */
     public function __construct(
-        public string $route = '/',
+        public string $href = '/',
         public bool $external = false,
-        public string $label = 'NavItem',
         public string $current = ''
     ) {
     }

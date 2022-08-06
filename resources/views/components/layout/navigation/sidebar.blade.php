@@ -1,6 +1,6 @@
 <div x-data
     x-cloak
-    class="relative z-40 md:hidden"
+    class="relative z-40 lg:hidden"
     role="dialog"
     aria-modal="true">
     <div x-show="$store.sidebar"
