@@ -14,15 +14,22 @@ return new class() extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->integer('git_id')->nullable();
-            $table->string('title')->nullable();
+            $table->string('name')->nullable();
             $table->string('slug')->unique()->nullable();
+            $table->string('path')->nullable();
             $table->text('description')->nullable();
-            $table->string('avatar')->nullable();
-            $table->string('pipeline')->nullable();
-            $table->string('project_status')->nullable();
-            $table->boolean('is_open_source')->default(0);
-            $table->string('main_branch')->nullable();
+            $table->string('default_branch')->nullable();
             $table->dateTime('git_created_at')->nullable();
+            $table->dateTime('git_updated_at')->nullable();
+            $table->string('web_url')->nullable();
+            $table->string('clone_url')->nullable();
+            $table->string('avatar_url')->nullable();
+            $table->string('readme_raw')->nullable();
+            $table->string('visibility')->nullable();
+            $table->boolean('is_open_source')->default(0);
+            $table->string('project_status')->nullable();
+            $table->string('pipeline')->nullable();
+
             $table->timestamps();
         });
     }

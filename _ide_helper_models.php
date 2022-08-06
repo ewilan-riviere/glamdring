@@ -20,7 +20,7 @@ namespace App\Models{
  * @property string|null $api_token
  * @property string|null $email
  * @property string|null $avatar_url
- * @property string|null $html_url
+ * @property string|null $web_url
  * @property string|null $repos_url
  * @property string|null $name
  * @property string|null $company
@@ -33,6 +33,7 @@ namespace App\Models{
  * @property int|null $following
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \App\Enums\GitForgeEnum $forge_type
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser query()
@@ -46,7 +47,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser whereFollowers($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser whereFollowing($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser whereForgeId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser whereHtmlUrl($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser whereLocation($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser whereName($value)
@@ -55,6 +55,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser whereReposUrl($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser whereUsername($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser whereWebUrl($value)
  */
 	class ForgeUser extends \Eloquent {}
 }
@@ -91,19 +92,25 @@ namespace App\Models{
  *
  * @property int $id
  * @property int|null $git_id
- * @property string|null $title
+ * @property string|null $name
  * @property string|null $slug
+ * @property string|null $path
  * @property string|null $description
- * @property string|null $avatar
+ * @property string|null $default_branch
+ * @property \Illuminate\Support\Carbon|null $git_created_at
+ * @property \Illuminate\Support\Carbon|null $git_updated_at
+ * @property string|null $web_url
+ * @property string|null $clone_url
+ * @property string|null $avatar_url
+ * @property string|null $readme_raw
+ * @property string|null $visibility
+ * @property bool $is_open_source
+ * @property \App\Enums\ProjectStatusEnum|null $project_status
  * @property string|null $pipeline
  * @property int|null $technology_id
  * @property int|null $repository_id
  * @property int|null $group_id
  * @property int|null $website_id
- * @property \App\Enums\ProjectStatusEnum|null $project_status
- * @property bool $is_open_source
- * @property string|null $main_branch
- * @property \Illuminate\Support\Carbon|null $git_created_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Group|null $group
@@ -120,22 +127,28 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Project newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Project newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Project query()
- * @method static \Illuminate\Database\Eloquent\Builder|Project whereAvatar($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereAvatarUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereCloneUrl($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereDefaultBranch($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereGitCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereGitId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereGitUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereGroupId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereIsOpenSource($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Project whereMainBranch($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project wherePath($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project wherePipeline($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereProjectStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereReadmeRaw($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereRepositoryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereTechnologyId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Project whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereVisibility($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereWebUrl($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereWebsiteId($value)
  */
 	class Project extends \Eloquent {}

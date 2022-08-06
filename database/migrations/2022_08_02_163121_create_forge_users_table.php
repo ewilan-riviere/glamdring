@@ -17,8 +17,9 @@ return new class() extends Migration
             $table->string('username')->nullable();
             $table->string('api_token')->nullable();
             $table->string('email')->nullable();
+            $table->string('forge_type')->nullable();
             $table->string('avatar_url')->nullable();
-            $table->string('html_url')->nullable();
+            $table->string('web_url')->nullable();
             $table->string('repos_url')->nullable();
             $table->string('name')->nullable();
             $table->string('company')->nullable();

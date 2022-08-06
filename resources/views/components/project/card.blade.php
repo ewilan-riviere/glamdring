@@ -17,7 +17,7 @@
                             <a href="#">
                                 <span class="absolute inset-0"
                                     aria-hidden="true"></span>
-                                {{ $project->title }} <span
+                                {{ $project->name }} <span
                                     class="sr-only">Running</span>
                             </a>
                         </h2>

@@ -22,7 +22,6 @@ class ProjectFactory extends Factory
         return [
             'git_id' => $this->faker->randomNumber(),
             'name' => ucfirst($name),
-            'slug' => Str::slug($name),
             'path' => Str::slug($name),
             'description' => $this->faker->paragraph(),
             'default_branch' => 'main',
@@ -31,16 +30,16 @@ class ProjectFactory extends Factory
             'web_url' => $this->faker->url(),
             'clone_url' => $this->faker->url(),
             'avatar_url' => $this->faker->url(),
-            'readme_raw' => $this->faker->paragraph(),
+            'readme_raw' => $this->faker->url(),
             'visibility' => 'public',
             'is_open_source' => $this->faker->boolean(30),
 
             'project_status' => $this->faker->randomElement(ProjectStatusEnum::cases()),
             'pipeline' => $this->faker->boolean(60),
 
-            'repository_id',
-            'technology_id',
-            'website_id',
+            // 'repository_id',
+            // 'technology_id',
+            // 'website_id',
         ];
     }
 }

@@ -1,3 +1,7 @@
+@php
+$git = $forge_user?->forge_type?->name ?? 'git';
+$git_icon = "icon-{$git}";
+@endphp
 <div class="sticky top-0">
     <div class="flex-1 space-y-8 py-6 pr-6 pl-4 sm:pl-6 lg:pl-8 xl:pl-0">
         <div
@@ -13,14 +17,15 @@
                     <div class="text-gray-dark text-sm font-medium">
                         {{ $forge_user->name }}
                     </div>
-                    <a href="{{ $forge_user->html_url }}"
+                    <a href="{{ $forge_user->web_url }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         class="group flex items-center space-x-1">
-                        <x-dynamic-component component="icon.github"
+                        <x-dynamic-component :component="$git_icon"
                             class="group-hover:text-gray-dark h-5 w-5 text-gray-400" />
                         <span
                             class="text-gray-medium group-hover:text-gray-dark text-sm font-medium">
-
-                            {{ $forge_user->username }}
+                            &#64;{{ $forge_user->username }}
                         </span>
                     </a>
                 </div>

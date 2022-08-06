@@ -2,9 +2,15 @@
 
 namespace App\Models;
 
+use App\Enums\GitForgeEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property string|null $web_url
+ * @property \App\Enums\GitForgeEnum $forge_type
+ * @package App\Models
+ */
 class ForgeUser extends Model
 {
     use HasFactory;
@@ -14,8 +20,9 @@ class ForgeUser extends Model
         'username',
         'api_token',
         'email',
+        'forge_type',
         'avatar_url',
-        'html_url',
+        'web_url',
         'repos_url',
         'name',
         'company',
@@ -32,6 +39,7 @@ class ForgeUser extends Model
 
     protected $casts = [
         'forge_id' => 'integer',
+        'forge_type' => GitForgeEnum::class,
         'public_repos' => 'integer',
         'public_gists' => 'integer',
         'followers' => 'integer',

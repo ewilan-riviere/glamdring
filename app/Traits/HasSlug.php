@@ -2,56 +2,48 @@
 
 namespace App\Traits;
 
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
+/**
+ * class Project extends Model
+ * {
+ *   use HasSlug;
+ *
+ *   // to override
+ *   protected $slug_twin = 'name';
+ *   protected $slug_column = 'slug';
+ * }
+ */
 trait HasSlug
 {
-    /**
-     * Get the route key for the model.
-     *
-     * @return string
-     */
-    public function getRouteKeyName()
+    protected $default_slug_twin = 'name';
+
+    protected $default_slug_column = 'slug';
+
+    public function getSlugTwin()
     {
-        return 'slug';
+        return $this->slug_twin ?? $this->default_slug_twin;
     }
 
-    /**
-     * Make a slug from a given field value.
-     *
-     * @usage: Add the following in your model boot() method.
-     *
-     * static::creating(function($article) {
-     *     $article->slug = $article->makeSlug();
-     * });
-     *
-     * @return string
-     */
-    public function makeSlug(string $from = 'title', string $column = 'slug')
+    public function getSlugColumn()
     {
-        $slug = Str::slug($this->{$from});
-
-        $count = self::whereRaw("{$column} RLIKE '^{$slug}(-[0-9]+)?$'")->count();
-
-        return $count ? "{$slug}-{$count}" : $slug;
+        return $this->slug_column ?? $this->default_slug_column;
     }
 
-    /**
-     * Find a model by its slug.
-     *
-     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model
-     *
-     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
-     */
-    public static function findBySlug(string $slug, array $columns = ['*'])
+    protected static function bootHasSlug()
     {
-        $result = self::where('slug', $slug)->first($columns);
+        static::creating(function ($model) {
+            $model->{$model->getSlugColumn()} = $model->generateUniqueSlug($model->{$model->getSlugTwin()}, 0, $model->getSlugColumn());
+        });
+    }
 
-        if (! is_null($result)) {
-            return $result;
+    protected function generateUniqueSlug(string $name, int $counter = 0, string $slug_field = 'slug')
+    {
+        $updated_name = 0 == $counter ? $name : $name.'-'.$counter;
+        if (static::where($slug_field, Str::slug($updated_name))->exists()) {
+            return $this->generateUniqueSlug($name, $counter + 1);
         }
-
-        throw (new ModelNotFoundException())->setModel((new self())->getTable());
+        return Str::slug($updated_name);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Services\GitForgeService;
 
+use App\Enums\GitForgeEnum;
 use App\Models\ForgeUser;
 use App\Services\GitForgeService;
 
@@ -40,6 +41,9 @@ class GitlabForge implements IGitForge
 
         $raw = $http->body;
         $this->service->forge_user = ForgeUser::convert($raw);
+
+        $this->service->forge_user->forge_id = $raw->id;
+        $this->service->forge_user->forge_type = GitForgeEnum::gitlab;
 
         return $this->service;
     }

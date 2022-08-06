@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Enums\ProjectStatusEnum;
-use App\Traits\Sluggable;
+use App\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -13,7 +13,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Project extends Model
 {
     use HasFactory;
-    use Sluggable;
+    use HasSlug;
+
+    protected $slug_twin = 'name';
+
+    protected $slug_column = 'slug';
 
     protected $fillable = [
         'git_id',
@@ -50,6 +54,11 @@ class Project extends Model
     protected $withCount = [
         'websites',
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     public function group(): BelongsTo
     {
