@@ -28,10 +28,15 @@ class Project extends Model
         'default_branch',
         'git_created_at',
         'git_updated_at',
+
         'web_url',
         'clone_url',
         'avatar_url',
+
         'readme_raw',
+        'package_json_raw',
+        'composer_json_raw',
+
         'visibility',
         'is_open_source',
 

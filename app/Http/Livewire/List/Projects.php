@@ -30,7 +30,7 @@ class Projects extends Component
     public function sort(string $type)
     {
         match ($type) {
-            'title' => $this->byTitle(),
+            'name' => $this->byName(),
             default => ''
         };
     }
@@ -40,9 +40,9 @@ class Projects extends Component
         $this->projects = $this->projects->reverse();
     }
 
-    public function byTitle()
+    public function byName()
     {
-        $this->projects = Project::orderBy('title', 'desc')
+        $this->projects = Project::orderBy('name', 'desc')
             ->get()
         ;
     }

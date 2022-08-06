@@ -48,7 +48,7 @@ class ContactNotification extends Notification
             ->line('Message:')
             ->line("{$this->submission->message}")
             ->salutation('Thanks.')
-            ->action('View app', $this->submission->url)
+            ->action('View app', $this->submission->origin)
         ;
     }
 

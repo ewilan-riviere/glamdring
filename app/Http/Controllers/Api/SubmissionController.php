@@ -10,50 +10,57 @@ use Notification;
 
 class SubmissionController extends Controller
 {
-    public function send(StoreSubmissionRequest $request)
+    public function create(StoreSubmissionRequest $request)
     {
         $validated = $request->validated();
         $success = false;
-        $select_honeypot = $validated['honeypot'];
-        $valid_domain = false;
 
-        $domain = parse_url($request->headers->get('origin'));
-        if (! in_array($domain['host'], config('mail.ip.list'))) {
-            $valid_domain = true;
-        }
+        /**
+         * Optional arguments
+         */
+        $app = $validated['app'] ?? $request->headers->get('host');
+        $to = $validated['to'] ?? config('mail.allowed.default');
+        $select_honeypot = $validated['honeypot'] ?? false;
 
-        // @phpstan-ignore-next-line
-        $submission = Submission::make([
-            ...$validated,
-        ]);
-        $submission->url = $request->headers->get('origin');
-        $submission->ip = $request->ip();
-
-        $allowed = config('mail.allowed');
-        $to = array_key_exists($submission->to, $allowed)
-            ? $allowed[$submission->to]
-            : config('mail.allowed.default');
-        $submission->to = $to;
-
-        if (! $select_honeypot) {
-            $submission->save();
-            Notification::route('mail', $to)
-                ->notify(new ContactNotification($submission))
-            ;
+        if (in_array($to, config('mail.allowed.list')) && ! $select_honeypot) {
             $success = true;
         }
 
+        if (! $success) {
+            return $this->fakeResponse();
+        }
+
+        $submission = Submission::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'message' => $validated['message'],
+
+            'app' => $app,
+            'to' => $to,
+            'honeypot' => $select_honeypot,
+
+            'host' => $request->headers->get('host'),
+            'origin' => $request->headers->get('origin'),
+            'ip' => $request->ip(),
+        ]);
+
+        Notification::route('mail', config('mail.to.address'))
+            ->notify(new ContactNotification($submission))
+        ;
+
         return response()->json([
-            'message' => $success ? 'Submssion received.' : 'Submission failed.',
-            // 'success' => [
-            //     'honeypot' => $select_honeypot,
-            //     'domain' => $valid_domain,
-            // ],
-            'submission' => [
-                'name' => $submission->name,
-                'email' => $submission->email,
-                'message' => $submission->message,
-            ],
-        ], $success ? 200 : 403);
+            'success' => true,
+            'message' => config('app.env') === 'local'
+                ? $submission
+                : 'Submission received.',
+        ]);
+    }
+
+    public function fakeResponse()
+    {
+        return response()->json([
+            'success' => false,
+            'message' => 'Submission failed.',
+        ], 202);
     }
 }

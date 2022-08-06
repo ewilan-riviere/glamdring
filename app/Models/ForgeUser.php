@@ -7,9 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property string|null $web_url
+ * @property string|null             $web_url
  * @property \App\Enums\GitForgeEnum $forge_type
- * @package App\Models
  */
 class ForgeUser extends Model
 {

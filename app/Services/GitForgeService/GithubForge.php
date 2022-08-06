@@ -54,7 +54,6 @@ class GithubForge implements IGitForge
 
     public function fetchRepositories(): GitForgeService
     {
-        // https://nunomaduro.com/speed_up_your_php_http_guzzle_requests_with_concurrency
         $http = $this->http->get("/users/{$this->service->username}/repos");
 
         $raw = $http->body;

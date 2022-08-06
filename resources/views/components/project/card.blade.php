@@ -1,7 +1,8 @@
-<x-app.slide-over :title="$project->title">
+<x-app.slide-over :title="$project->name">
     <x-slot:trigger>
-        <li
-            class="relative py-5 pl-4 pr-6 hover:bg-gray-50 dark:hover:bg-gray-800 sm:py-6 sm:pl-6 lg:pl-8 xl:pl-6">
+        <li x-data="project"
+            x-init="boot('{{ $project->git_id }}', '{{ $token }}')"
+            class="relative cursor-pointer py-5 pl-4 pr-6 hover:bg-gray-50 dark:hover:bg-gray-800 sm:py-6 sm:pl-6 lg:pl-8 xl:pl-6">
             <div class="flex items-center justify-between space-x-4">
                 <!-- Repo name and link -->
                 <div class="min-w-0 space-y-3">
@@ -14,15 +15,15 @@
                         </span>
 
                         <h2 class="text-sm font-medium">
-                            <a href="#">
-                                <span class="absolute inset-0"
-                                    aria-hidden="true"></span>
-                                {{ $project->name }} <span
-                                    class="sr-only">Running</span>
-                            </a>
+                            <span class="absolute inset-0"
+                                aria-hidden="true"></span>
+                            {{ $project->name }} <span
+                                class="sr-only">Running</span>
                         </h2>
                     </div>
-                    <a href="#"
+                    <a href="{{ $project->web_url }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         class="group relative flex items-center space-x-2.5">
                         <svg class="h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-400"
                             viewBox="0 0 18 18"
@@ -36,7 +37,8 @@
                         </svg>
                         <span
                             class="truncate text-sm font-medium text-gray-500 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-gray-100">
-                            debbielewis/workcation </span>
+                            {{ $project->path }}
+                        </span>
                     </a>
                 </div>
                 <div class="sm:hidden">

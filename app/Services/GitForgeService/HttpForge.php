@@ -26,9 +26,23 @@ class HttpForge
         return new HttpForge($forge->api_url, $forge->service->api_token, $forge->getHeaders());
     }
 
-    public function get(string $endpoint)
+    public function setUrl(string $endpoint, array $query_params = []): string
     {
-        $this->url = "{$this->api_url}{$endpoint}";
+        $query_params_str = '';
+        if (! empty($query_params)) {
+            foreach ($query_params as $key => $value) {
+                $query_params_str .= "{$key}={$value}&";
+            }
+
+            $query_params_str = "?{$query_params_str}";
+        }
+
+        return "{$this->api_url}{$endpoint}{$query_params_str}";
+    }
+
+    public function get(string $endpoint, array $query_params = [])
+    {
+        $this->url = $this->setUrl($endpoint, $query_params);
         $this->response = Http::withHeaders($this->headers)
             ->get($this->url)
         ;

@@ -25,6 +25,8 @@ return new class() extends Migration
             $table->string('clone_url')->nullable();
             $table->string('avatar_url')->nullable();
             $table->string('readme_raw')->nullable();
+            $table->string('package_json_raw')->nullable();
+            $table->string('composer_json_raw')->nullable();
             $table->string('visibility')->nullable();
             $table->boolean('is_open_source')->default(0);
             $table->string('project_status')->nullable();

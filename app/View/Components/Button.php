@@ -25,7 +25,7 @@ class Button extends Component
      */
     public function render()
     {
-        $base_class = 'flex w-full justify-center rounded-md border border-transparent py-2 px-4 text-sm shadow-sm transition-colors duration-100 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:ring-offset-gray-700';
+        $base_class = 'flex w-full justify-center rounded-md border border-transparent py-2 px-4 text-sm shadow-sm transition-colors duration-100 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:ring-offset-gray-700 relative';
 
         $primary_class = 'bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-500';
         $secondary_class = 'bg-gray-200 dark:bg-gray-600 dark:text-gray-100 text-gray-900 hover:bg-gray-400 dark:hover:bg-gray-700';

@@ -13,13 +13,18 @@ return new class() extends Migration
     {
         Schema::create('submissions', function (Blueprint $table) {
             $table->id();
-            $table->string('app')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();
-            $table->string('ip')->nullable();
-            $table->string('url')->nullable();
-            $table->string('to')->nullable();
             $table->text('message')->nullable();
+
+            $table->string('app')->nullable();
+            $table->string('to')->nullable();
+            $table->string('honeypot')->nullable();
+
+            $table->string('host')->nullable();
+            $table->string('origin')->nullable();
+            $table->string('ip')->nullable();
+
             $table->timestamps();
         });
     }

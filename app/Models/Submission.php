@@ -10,12 +10,16 @@ class Submission extends Model
     use HasFactory;
 
     protected $fillable = [
-        'app',
         'name',
         'email',
-        'ip',
-        'url',
-        'to',
         'message',
+
+        'app',
+        'to',
+        'honeypot',
+
+        'host',
+        'origin',
+        'ip',
     ];
 }

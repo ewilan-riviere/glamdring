@@ -80,7 +80,10 @@ return [
         ],
     ],
 
-    'allowed' => explode(',', env('MAIL_ALLOWED', 'ewilan.riviere@gmail.com')),
+    'allowed' => [
+        'list' => explode(',', env('MAIL_ALLOWED_LIST', 'ewilan.riviere@gmail.com')),
+        'default' => env('MAIL_ALLOWED_DEFAULT', 'ewilan.riviere@gmail.com'),
+    ],
     'ip' => [
         'list' => explode(',', env('MAIL_IP_LIST', 'localhost,localhost:3000,127.0.0.1,127.0.0.1:8000,::1')),
     ],

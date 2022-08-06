@@ -2,10 +2,20 @@
 
 namespace App\Http\Controllers;
 
-class MainController extends Controller
+use App\Models\User;
+use Request;
+
+class MainController extends DashboardController
 {
-    public function index()
+    public function index(Request $request)
     {
+        /** @var User|null $user */
+        $user = auth()->user();
+        if ($user) {
+            $token = $user->createToken('sanctum');
+            $token = $token->plainTextToken;
+        }
+
         return view('pages.index');
     }
 

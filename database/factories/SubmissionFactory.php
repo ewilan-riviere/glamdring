@@ -17,14 +17,17 @@ class SubmissionFactory extends Factory
     public function definition()
     {
         return [
-            'app' => "{$this->faker->company()} testing",
             'name' => $this->faker->name(),
             'email' => $this->faker->safeEmail(),
-            'ip' => $this->faker->ipv4(),
-            'url' => $this->faker->url(),
-            'to' => config('mail.to.address'),
             'message' => $this->faker->paragraphs(3, true),
-            'created_at' => $this->faker->dateTime(),
+
+            'app' => "{$this->faker->company()} testing",
+            'to' => config('mail.to.address'),
+            'honeypot' => false,
+
+            'host' => $this->faker->domainName(),
+            'origin' => $this->faker->domainName(),
+            'ip' => $this->faker->ipv4(),
         ];
     }
 }

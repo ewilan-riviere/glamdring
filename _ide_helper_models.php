@@ -19,6 +19,7 @@ namespace App\Models{
  * @property string|null $username
  * @property string|null $api_token
  * @property string|null $email
+ * @property \App\Enums\GitForgeEnum|null $forge_type
  * @property string|null $avatar_url
  * @property string|null $web_url
  * @property string|null $repos_url
@@ -33,7 +34,6 @@ namespace App\Models{
  * @property int|null $following
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \App\Enums\GitForgeEnum $forge_type
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser query()
@@ -47,6 +47,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser whereFollowers($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser whereFollowing($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser whereForgeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser whereForgeType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser whereLocation($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ForgeUser whereName($value)
@@ -103,6 +104,8 @@ namespace App\Models{
  * @property string|null $clone_url
  * @property string|null $avatar_url
  * @property string|null $readme_raw
+ * @property string|null $package_json_raw
+ * @property string|null $composer_json_raw
  * @property string|null $visibility
  * @property bool $is_open_source
  * @property \App\Enums\ProjectStatusEnum|null $project_status
@@ -129,6 +132,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Project query()
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereAvatarUrl($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereCloneUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project whereComposerJsonRaw($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereDefaultBranch($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereDescription($value)
@@ -139,6 +143,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereIsOpenSource($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Project wherePackageJsonRaw($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project wherePath($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project wherePipeline($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Project whereProjectStatus($value)
@@ -190,13 +195,15 @@ namespace App\Models{
  * App\Models\Submission
  *
  * @property int $id
- * @property string|null $app
  * @property string|null $name
  * @property string|null $email
- * @property string|null $ip
- * @property string|null $url
- * @property string|null $to
  * @property string|null $message
+ * @property string|null $app
+ * @property string|null $to
+ * @property string|null $honeypot
+ * @property string|null $host
+ * @property string|null $origin
+ * @property string|null $ip
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Database\Factories\SubmissionFactory factory(...$parameters)
@@ -206,13 +213,15 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Submission whereApp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Submission whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Submission whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Submission whereHoneypot($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Submission whereHost($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Submission whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Submission whereIp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Submission whereMessage($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Submission whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Submission whereOrigin($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Submission whereTo($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Submission whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Submission whereUrl($value)
  */
 	class Submission extends \Eloquent {}
 }
