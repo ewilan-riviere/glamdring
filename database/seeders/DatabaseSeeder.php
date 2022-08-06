@@ -18,12 +18,12 @@ class DatabaseSeeder extends Seeder
         $seeds = [
             EmptySeeder::class,
             TechnologySeeder::class,
-            ProjectSeeder::class,
         ];
 
         if ('local' === config('app.env')) {
             $seeds = [
                 ...$seeds,
+                ProjectSeeder::class,
                 SubmissionSeeder::class,
             ];
         }
