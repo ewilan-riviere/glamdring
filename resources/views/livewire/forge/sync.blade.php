@@ -8,6 +8,6 @@
             <x-icon-loading />
         </div>
         <x-icon-git-sync class="mr-1 h-5 w-5" />
-        <div>Sync. {{ $forge_user->forge_type->value }}</div>
+        <div>Sync. {{ $forge_user->forge_type?->value }}</div>
     </x-button>
 </div>

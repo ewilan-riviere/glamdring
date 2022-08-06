@@ -22,9 +22,7 @@
     "laravel/scout": "^9.4",
     "laravel/tinker": "^2.7",
     "livewire/livewire": "^2.10",
-    "meilisearch/meilisearch-php": "^0.24.0",
-    "tightenco/ziggy": "^1.4",
-    "ueberdosis/tiptap-php": "^1.1"
+    "meilisearch/meilisearch-php": "^0.24.0"
   },
   "require-dev": {
     "barryvdh/laravel-ide-helper": "^2.12",
