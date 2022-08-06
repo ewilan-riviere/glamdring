@@ -2,6 +2,7 @@
 
 namespace App\Services\GitForgeService;
 
+use App\Models\Project;
 use App\Services\GitForgeService;
 
 /**
@@ -19,4 +20,6 @@ interface IGitForge
     public function fetchUser(): GitForgeService;
 
     public function fetchRepositories(): GitForgeService;
+
+    public function fetchLanguages(Project $project): GitForgeService;
 }

@@ -80,4 +80,14 @@ class GitlabForge implements IGitForge
 
         return $this->service;
     }
+
+    public function fetchLanguages(Project $project): GitForgeService
+    {
+        $endpoint = "/projects/{$project->git_id}/languages";
+        $http = $this->http->get($endpoint);
+        $raw = $http->body;
+        dump($raw);
+
+        return $this->service;
+    }
 }

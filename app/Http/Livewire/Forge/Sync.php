@@ -14,6 +14,7 @@ class Sync extends Component
 
         $forge = GitForgeService::create();
         $forge->fetchRepositories();
+        // $forge->fetchProjectsLanguages();
 
         $this->emit('projectsListUpdate');
     }

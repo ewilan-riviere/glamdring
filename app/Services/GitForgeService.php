@@ -76,12 +76,22 @@ class GitForgeService
     public function fetchUser(): GitForgeService
     {
         $this->forge->fetchUser();
+
         return $this;
     }
 
     public function fetchRepositories(): GitForgeService
     {
         $this->forge->fetchRepositories();
+
+        return $this;
+    }
+
+    public function fetchProjectsLanguages(): GitForgeService
+    {
+        // https://nunomaduro.com/speed_up_your_php_http_guzzle_requests_with_concurrency
+        Project::each(fn(Project $project) => $this->forge->fetchLanguages($project));
+
         return $this;
     }
 }

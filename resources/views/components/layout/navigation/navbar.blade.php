@@ -2,13 +2,17 @@
     <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
             <!-- Logo section -->
-            <div class="flex items-center px-2 lg:px-0 xl:w-64">
+            <a href="/"
+                class="flex items-center px-2 lg:px-0 xl:w-64">
                 <div class="flex-shrink-0">
-                    <img class="h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/workflow-mark-indigo-300.svg"
+                    <img class="hidden h-8 w-auto lg:block"
+                        src="/images/brand-icon-text-white.svg"
+                        alt="Workflow">
+                    <img class="block h-8 w-auto lg:hidden"
+                        src="/images/brand-icon-white.svg"
                         alt="Workflow">
                 </div>
-            </div>
+            </a>
 
             <!-- Search section -->
             <div class="flex flex-1 justify-center lg:justify-end">

@@ -19,5 +19,6 @@
                 {{ $right }}
             </div>
         </div>
+        <x-layout.footer />
     </div>
 </x-app>
