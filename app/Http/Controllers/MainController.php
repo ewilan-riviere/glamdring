@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Request;
 
 class MainController extends DashboardController
 {
     public function index(Request $request)
     {
+        // $projects = Project::all();
+
         return view('pages.index');
     }
 

@@ -1,3 +1,7 @@
+@php
+$id = Str::random();
+@endphp
+
 <div id="{{ $id }}"
     x-data="dialog"
     x-init="boot('{{ $id }}')"
