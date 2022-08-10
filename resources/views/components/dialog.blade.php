@@ -49,5 +49,4 @@ $id = Str::random();
             </div>
         </div>
     </div>
-
 </div>
