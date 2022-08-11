@@ -28,7 +28,7 @@ $class = 'block px-4 py-2 text-gray-dark text-sm rounded-md transition-colors du
                     tabindex="-1"
                     id="user-menu-item-1">Settings</a>
 
-                <x-app.color-mode class="{{ $class }}" />
+                <x-color-mode class="{{ $class }}" />
 
                 <form method="POST"
                     action="{{ route('logout') }}"

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\App;
+namespace App\View\Components;
 
 use Illuminate\View\Component;
 use Str;
@@ -35,6 +35,6 @@ class Media extends Component
         $this->id = Str::random();
         $this->preflight_class = 'rounded-md px-5';
 
-        return view('components.app.media');
+        return view('components.media');
     }
 }

@@ -1,9 +1,6 @@
 <x-layout.dashboard>
-    <x-slot:left>
-        <x-dashboard.profile />
-    </x-slot:left>
-
-    <livewire:list.projects />
+    <livewire:data-table />
+    {{-- <livewire:list.projects /> --}}
 
     <x-slot:right>
         <x-dashboard.activity />

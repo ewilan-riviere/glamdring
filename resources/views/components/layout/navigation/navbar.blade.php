@@ -1,3 +1,22 @@
+@php
+$items = [
+    [
+        'label' => 'Dashboard',
+        'href' => route('dashboard.index'),
+        'icon' => 'dashboard',
+    ],
+    [
+        'label' => 'Notes',
+        'href' => route('dashboard.notes'),
+        'icon' => 'notes',
+    ],
+    [
+        'label' => 'Submissions',
+        'href' => route('dashboard.submissions'),
+        'icon' => 'submissions',
+    ],
+];
+@endphp
 <nav class="flex-shrink-0 bg-indigo-600">
     <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
@@ -92,11 +111,13 @@
             <!-- Links section -->
             <div class="hidden lg:block lg:w-80">
                 <div class="flex items-center justify-end">
-                    <div class="flex">
-                        <x-layout.navigation.item
-                            href="{{ route('dashboard.submissions') }}">
-                            Submissions
-                        </x-layout.navigation.item>
+                    <div class="flex space-x-1">
+                        @foreach ($items as $item)
+                            <x-layout.navigation.item
+                                href="{{ $item['href'] }}">
+                                {{ $item['label'] }}
+                            </x-layout.navigation.item>
+                        @endforeach
                     </div>
                     <x-layout.profile class="relative ml-4 flex-shrink-0" />
                 </div>

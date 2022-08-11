@@ -58,7 +58,7 @@
                             </div>
 
                             <div>
-                                <x-button type="submit">
+                                <x-button type="submit" full>
                                     Sign in
                                 </x-button>
                             </div>

@@ -1,4 +1,4 @@
-<x-app.slide-over :title="$project->name">
+<x-slide-over :title="$project->name">
     <x-slot:trigger>
         <li
             class="relative cursor-pointer py-5 pl-4 pr-6 hover:bg-gray-50 dark:hover:bg-gray-800 sm:py-6 sm:pl-6 lg:pl-8 xl:pl-6">
@@ -83,5 +83,7 @@
             </div>
         </li>
     </x-slot:trigger>
-    Content
-</x-app.slide-over>
+    <div>
+        {{ $project->name }}
+    </div>
+</x-slide-over>

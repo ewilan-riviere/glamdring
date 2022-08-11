@@ -10,6 +10,7 @@ import Tiptap from './modules/tiptap'
 import Dialog from './modules/dialog'
 import Project from './modules/project'
 import Submission from './modules/submission'
+import SlideOver from './modules/slide-over'
 
 window.Alpine = Alpine
 
@@ -20,5 +21,6 @@ Alpine.data('dialog', Dialog)
 Alpine.data('project', Project)
 Alpine.data('submission', Submission)
 Alpine.store('sidebar', false)
+Alpine.data('slideOver', SlideOver)
 
 Alpine.start()

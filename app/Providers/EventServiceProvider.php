@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Listeners\LogoutListener;
-use Cache;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -23,7 +22,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         Logout::class => [
             LogoutListener::class,
-        ]
+        ],
     ];
 
     /**
