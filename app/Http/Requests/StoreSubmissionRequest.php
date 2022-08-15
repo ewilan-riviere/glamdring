@@ -11,7 +11,7 @@ class StoreSubmissionRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
-            'message' => 'required|string|max:1500',
+            'message' => 'required|string|min:25|max:1500',
             'app' => 'nullable|string|max:255',
             'to' => 'nullable|string|max:255',
             'honeypot' => 'nullable|boolean',
