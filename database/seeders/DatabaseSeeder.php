@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use File;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -10,33 +10,13 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run()
+    public function run(): void
     {
-        File::deleteDirectory(public_path('storage/projects'));
-        File::deleteDirectory(public_path('storage/technologies'));
+        // \App\Models\User::factory(10)->create();
 
-        $seeds = [
-            EmptySeeder::class,
-            TechnologySeeder::class,
-        ];
-
-        if ('local' === config('app.env')) {
-            $seeds = [
-                ...$seeds,
-                ProjectSeeder::class,
-                SubmissionSeeder::class,
-            ];
-        }
-
-        $this->call($seeds);
-    }
-
-    public function parseJson(string $jsonPath)
-    {
-        if (File::exists($jsonPath)) {
-            $json = File::get($jsonPath);
-        }
-
-        return false;
+        // \App\Models\User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
     }
 }

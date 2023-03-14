@@ -1,0 +1,38 @@
+@import 'tiptap.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Ringbearer;
+  src: url('../fonts/ringbearer-medium.ttf');
+}
+
+@font-face {
+  font-family: Aniron;
+  src: url('../fonts/aniron.ttf');
+}
+
+@font-face {
+  font-family: ElvishRingNFI;
+  src: url('../fonts/elvish-ring-nfi.ttf');
+}
+
+@font-face {
+  font-family: FanjoLeoda;
+  src: url('../fonts/fanjo-leoda.ttf');
+}
+
+@font-face {
+  font-family: Midjungards;
+  src: url('../fonts/midjungards.otf');
+}
+
+body {
+  @apply bg-white dark:bg-gray-900 text-black dark:text-white scrollbar-thin;
+}
+
+[x-cloak] {
+  display: none;
+}

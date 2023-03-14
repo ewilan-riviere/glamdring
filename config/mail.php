@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Default Mailer
@@ -28,7 +27,7 @@ return [
     | sending an e-mail. You will specify which one you are using for your
     | mailers below. You are free to add additional mailers as required.
     |
-    | Supported: "smtp", "sendmail", "mailgun", "ses",
+    | Supported: "smtp", "sendmail", "mailgun", "ses", "ses-v2",
     |            "postmark", "log", "array", "failover"
     |
     */
@@ -51,10 +50,16 @@ return [
 
         'mailgun' => [
             'transport' => 'mailgun',
+            // 'client' => [
+            //     'timeout' => 5,
+            // ],
         ],
 
         'postmark' => [
             'transport' => 'postmark',
+            // 'client' => [
+            //     'timeout' => 5,
+            // ],
         ],
 
         'sendmail' => [
@@ -80,14 +85,6 @@ return [
         ],
     ],
 
-    'allowed' => [
-        'list' => explode(',', env('MAIL_ALLOWED_LIST', 'ewilan.riviere@gmail.com')),
-        'default' => env('MAIL_ALLOWED_DEFAULT', 'ewilan.riviere@gmail.com'),
-    ],
-    'ip' => [
-        'list' => explode(',', env('MAIL_IP_LIST', 'localhost,localhost:3000,127.0.0.1,127.0.0.1:8000,::1')),
-    ],
-
     /*
     |--------------------------------------------------------------------------
     | Global "From" Address
@@ -102,10 +99,6 @@ return [
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
-    ],
-    'to' => [
-        'address' => env('MAIL_TO_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_TO_NAME', 'Example'),
     ],
 
     /*
@@ -126,5 +119,4 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
-
 ];
