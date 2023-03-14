@@ -197,6 +197,7 @@ echo "indent_size = 2" >> .editorconfig
 ```
 
 -   replace `app.js` with `app.ts`
+-   tasks
 
 `package.json`
 

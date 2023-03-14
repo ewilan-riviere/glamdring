@@ -2721,16 +2721,16 @@
         },
         {
             "name": "kiwilan/typescriptable-laravel",
-            "version": "1.1.001",
+            "version": "1.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kiwilan/typescriptable-laravel.git",
-                "reference": "fc9daeac7aa90fdd2846f33fe5e80bdec0747fe9"
+                "reference": "a5d1f64bda9cdc643c7c5ae493167ece81f64f99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kiwilan/typescriptable-laravel/zipball/fc9daeac7aa90fdd2846f33fe5e80bdec0747fe9",
-                "reference": "fc9daeac7aa90fdd2846f33fe5e80bdec0747fe9",
+                "url": "https://api.github.com/repos/kiwilan/typescriptable-laravel/zipball/a5d1f64bda9cdc643c7c5ae493167ece81f64f99",
+                "reference": "a5d1f64bda9cdc643c7c5ae493167ece81f64f99",
                 "shasum": ""
             },
             "require": {
@@ -2798,9 +2798,9 @@
             ],
             "support": {
                 "issues": "https://github.com/kiwilan/typescriptable-laravel/issues",
-                "source": "https://github.com/kiwilan/typescriptable-laravel/tree/1.1.001"
+                "source": "https://github.com/kiwilan/typescriptable-laravel/tree/1.1.12"
             },
-            "time": "2023-03-08T14:48:35+00:00"
+            "time": "2023-03-14T17:35:51+00:00"
         },
         {
             "name": "laravel/fortify",
@@ -7012,16 +7012,16 @@
         },
         {
             "name": "spatie/laravel-package-tools",
-            "version": "1.14.1",
+            "version": "1.14.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-package-tools.git",
-                "reference": "b477dd2f89d0751f0e51ffb3a70181f0bc7ab8df"
+                "reference": "bab62023a4745a61170ad5424184533685e73c2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/b477dd2f89d0751f0e51ffb3a70181f0bc7ab8df",
-                "reference": "b477dd2f89d0751f0e51ffb3a70181f0bc7ab8df",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/bab62023a4745a61170ad5424184533685e73c2d",
+                "reference": "bab62023a4745a61170ad5424184533685e73c2d",
                 "shasum": ""
             },
             "require": {
@@ -7060,7 +7060,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-package-tools/issues",
-                "source": "https://github.com/spatie/laravel-package-tools/tree/1.14.1"
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.14.2"
             },
             "funding": [
                 {
@@ -7068,7 +7068,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-27T15:33:45+00:00"
+            "time": "2023-03-14T16:41:21+00:00"
         },
         {
             "name": "spatie/laravel-query-builder",
@@ -11393,16 +11393,16 @@
         },
         {
             "name": "nunomaduro/collision",
-            "version": "v7.1.1",
+            "version": "v7.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/collision.git",
-                "reference": "ec91efc82a40ca4224a53494e7e93775cebc39e5"
+                "reference": "f502ff3b2051124c89b4dd3a8a497ca65f3ce26c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/ec91efc82a40ca4224a53494e7e93775cebc39e5",
-                "reference": "ec91efc82a40ca4224a53494e7e93775cebc39e5",
+                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/f502ff3b2051124c89b4dd3a8a497ca65f3ce26c",
+                "reference": "f502ff3b2051124c89b4dd3a8a497ca65f3ce26c",
                 "shasum": ""
             },
             "require": {
@@ -11485,7 +11485,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-03-13T17:02:54+00:00"
+            "time": "2023-03-14T14:34:49+00:00"
         },
         {
             "name": "nunomaduro/larastan",
