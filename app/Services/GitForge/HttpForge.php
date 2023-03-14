@@ -21,7 +21,7 @@ class HttpForge
     ) {
     }
 
-    public static function create(IGitForge $forge): HttpForge
+    public static function create(GitForge $forge): HttpForge
     {
         return new HttpForge($forge->api_url, $forge->service->api_token, $forge->getHeaders());
     }

@@ -3,12 +3,13 @@
 namespace App\Services\GitForge;
 
 use App\Models\ForgeUser;
+use App\Models\Project;
 use App\Services\GitForgeService;
 
 /**
  * Docs: https://developer.atlassian.com/cloud/bitbucket/rest/intro/
  */
-class BitbucketForge implements IGitForge
+class BitbucketForge extends GitForge implements IGitForge
 {
     public string $api_url = 'https://api.bitbucket.org/2.0';
 
@@ -17,6 +18,11 @@ class BitbucketForge implements IGitForge
     public function __construct(
         public GitForgeService $service
     ) {
+    }
+
+    public function fetchLanguages(Project $project): GitForgeService
+    {
+        return $this->service;
     }
 
     public static function create(GitForgeService $service): BitbucketForge

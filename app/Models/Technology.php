@@ -25,11 +25,6 @@ class Technology extends Model
         'last_version' => 'float',
     ];
 
-    private static $sluggable = [
-        'slug_column' => 'slug',
-        'slug_from_column' => 'name',
-    ];
-
     public function projects(): BelongsToMany
     {
         return $this->belongsToMany(Project::class);

@@ -11,7 +11,7 @@ use Illuminate\Support\Carbon;
 /**
  * Docs: https://docs.gitlab.com/ee/api/
  */
-class GitlabForge implements IGitForge
+class GitlabForge extends GitForge implements IGitForge
 {
     public string $api_url = 'https://gitlab.com/api/v4';
 

@@ -21,5 +21,5 @@ interface IGitForge
 
     public function fetchRepositories(): GitForgeService;
 
-    // public function fetchLanguages(Project $project): GitForgeService;
+    public function fetchLanguages(Project $project): GitForgeService;
 }

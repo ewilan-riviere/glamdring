@@ -4,12 +4,13 @@ namespace App\Services\GitForge;
 
 use App\Enums\GitForgeEnum;
 use App\Models\ForgeUser;
+use App\Models\Project;
 use App\Services\GitForgeService;
 
 /**
  * Docs: https://docs.github.com/en/rest
  */
-class GithubForge implements IGitForge
+class GithubForge extends GitForge implements IGitForge
 {
     public string $api_url = 'https://api.github.com';
 
@@ -18,6 +19,11 @@ class GithubForge implements IGitForge
     public function __construct(
         public GitForgeService $service
     ) {
+    }
+
+    public function fetchLanguages(Project $project): GitForgeService
+    {
+        return $this->service;
     }
 
     public static function create(GitForgeService $service): GithubForge
