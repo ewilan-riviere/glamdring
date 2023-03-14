@@ -4,6 +4,12 @@ const Routes: Record<App.Route.Name, App.Route.Entity> = {
     name: 'login',
     path: '/login',
     params: undefined,
+    method: 'GET',
+  },
+  'login': {
+    name: 'login',
+    path: '/login',
+    params: undefined,
     method: 'POST',
   },
   'logout': {
@@ -12,11 +18,11 @@ const Routes: Record<App.Route.Name, App.Route.Entity> = {
     params: undefined,
     method: 'POST',
   },
-  'password.email': {
-    name: 'password.email',
+  'password.request': {
+    name: 'password.request',
     path: '/forgot-password',
     params: undefined,
-    method: 'POST',
+    method: 'GET',
   },
   'password.reset': {
     name: 'password.reset',
@@ -26,11 +32,23 @@ const Routes: Record<App.Route.Name, App.Route.Entity> = {
     },
     method: 'GET',
   },
+  'password.email': {
+    name: 'password.email',
+    path: '/forgot-password',
+    params: undefined,
+    method: 'POST',
+  },
   'password.update': {
     name: 'password.update',
     path: '/reset-password',
     params: undefined,
     method: 'POST',
+  },
+  'register': {
+    name: 'register',
+    path: '/register',
+    params: undefined,
+    method: 'GET',
   },
   'register': {
     name: 'register',
@@ -50,15 +68,27 @@ const Routes: Record<App.Route.Name, App.Route.Entity> = {
     params: undefined,
     method: 'PUT',
   },
+  'user/confirm-password': {
+    name: 'user/confirm-password',
+    path: '/user/confirm-password',
+    params: undefined,
+    method: 'GET',
+  },
+  'password.confirmation': {
+    name: 'password.confirmation',
+    path: '/user/confirmed-password-status',
+    params: undefined,
+    method: 'GET',
+  },
   'password.confirm': {
     name: 'password.confirm',
     path: '/user/confirm-password',
     params: undefined,
     method: 'POST',
   },
-  'password.confirmation': {
-    name: 'password.confirmation',
-    path: '/user/confirmed-password-status',
+  'two-factor.login': {
+    name: 'two-factor.login',
+    path: '/two-factor-challenge',
     params: undefined,
     method: 'GET',
   },
@@ -68,17 +98,23 @@ const Routes: Record<App.Route.Name, App.Route.Entity> = {
     params: undefined,
     method: 'POST',
   },
-  'two-factor.disable': {
-    name: 'two-factor.disable',
+  'two-factor.enable': {
+    name: 'two-factor.enable',
     path: '/user/two-factor-authentication',
     params: undefined,
-    method: 'DELETE',
+    method: 'POST',
   },
   'two-factor.confirm': {
     name: 'two-factor.confirm',
     path: '/user/confirmed-two-factor-authentication',
     params: undefined,
     method: 'POST',
+  },
+  'two-factor.disable': {
+    name: 'two-factor.disable',
+    path: '/user/two-factor-authentication',
+    params: undefined,
+    method: 'DELETE',
   },
   'two-factor.qr-code': {
     name: 'two-factor.qr-code',
@@ -89,6 +125,12 @@ const Routes: Record<App.Route.Name, App.Route.Entity> = {
   'two-factor.secret-key': {
     name: 'two-factor.secret-key',
     path: '/user/two-factor-secret-key',
+    params: undefined,
+    method: 'GET',
+  },
+  'two-factor.recovery-codes': {
+    name: 'two-factor.recovery-codes',
+    path: '/user/two-factor-recovery-codes',
     params: undefined,
     method: 'GET',
   },
@@ -128,96 +170,10 @@ const Routes: Record<App.Route.Name, App.Route.Entity> = {
     params: undefined,
     method: 'GET',
   },
-  'log-viewer.hosts': {
-    name: 'log-viewer.hosts',
-    path: '/log-viewer/api/hosts',
+  'api/user': {
+    name: 'api/user',
+    path: '/api/user',
     params: undefined,
-    method: 'GET',
-  },
-  'log-viewer.folders': {
-    name: 'log-viewer.folders',
-    path: '/log-viewer/api/folders',
-    params: undefined,
-    method: 'GET',
-  },
-  'log-viewer.folders.download': {
-    name: 'log-viewer.folders.download',
-    path: '/log-viewer/api/folders/{folderIdentifier}/download',
-    params: {
-      folderIdentifier: 'string',
-    },
-    method: 'GET',
-  },
-  'log-viewer.folders.clear-cache': {
-    name: 'log-viewer.folders.clear-cache',
-    path: '/log-viewer/api/folders/{folderIdentifier}/clear-cache',
-    params: {
-      folderIdentifier: 'string',
-    },
-    method: 'POST',
-  },
-  'log-viewer.folders.delete': {
-    name: 'log-viewer.folders.delete',
-    path: '/log-viewer/api/folders/{folderIdentifier}',
-    params: {
-      folderIdentifier: 'string',
-    },
-    method: 'DELETE',
-  },
-  'log-viewer.files': {
-    name: 'log-viewer.files',
-    path: '/log-viewer/api/files',
-    params: undefined,
-    method: 'GET',
-  },
-  'log-viewer.files.download': {
-    name: 'log-viewer.files.download',
-    path: '/log-viewer/api/files/{fileIdentifier}/download',
-    params: {
-      fileIdentifier: 'string',
-    },
-    method: 'GET',
-  },
-  'log-viewer.files.clear-cache': {
-    name: 'log-viewer.files.clear-cache',
-    path: '/log-viewer/api/files/{fileIdentifier}/clear-cache',
-    params: {
-      fileIdentifier: 'string',
-    },
-    method: 'POST',
-  },
-  'log-viewer.files.delete': {
-    name: 'log-viewer.files.delete',
-    path: '/log-viewer/api/files/{fileIdentifier}',
-    params: {
-      fileIdentifier: 'string',
-    },
-    method: 'DELETE',
-  },
-  'log-viewer.files.clear-cache-all': {
-    name: 'log-viewer.files.clear-cache-all',
-    path: '/log-viewer/api/clear-cache-all',
-    params: undefined,
-    method: 'POST',
-  },
-  'log-viewer.files.delete-multiple-files': {
-    name: 'log-viewer.files.delete-multiple-files',
-    path: '/log-viewer/api/delete-multiple-files',
-    params: undefined,
-    method: 'POST',
-  },
-  'log-viewer.logs': {
-    name: 'log-viewer.logs',
-    path: '/log-viewer/api/logs',
-    params: undefined,
-    method: 'GET',
-  },
-  'log-viewer.index': {
-    name: 'log-viewer.index',
-    path: '/log-viewer/{view?}',
-    params: {
-      view: 'string',
-    },
     method: 'GET',
   },
   '/': {

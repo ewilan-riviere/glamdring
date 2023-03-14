@@ -35,6 +35,7 @@ return [
                 'livewire.*',
                 'ignition.*',
                 'filament.*',
+                'log-viewer.*',
             ],
             'path' => [
                 'api/*',

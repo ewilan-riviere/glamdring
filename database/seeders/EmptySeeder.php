@@ -15,8 +15,8 @@ class EmptySeeder extends Seeder
     {
         User::factory()->create([
             'name' => 'Super Admin',
-            'email' => 'superadmin@example.com',
-            'password' => Hash::make('password'),
+            'email' => config('app.admin.email'),
+            'password' => Hash::make(config('app.admin.password')),
         ]);
     }
 }

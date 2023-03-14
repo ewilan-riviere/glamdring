@@ -18,9 +18,9 @@
             "@": ["./resources/js"]
         }
     },
-    "files": ["resources/**/*.d.ts"],
     "include": [
-        "resources/**/*.{js,jsx,ts,tsx,vue,d.ts}",
+        "resources/**/*.ts",
+        "resources/**/*.{js,jsx,ts,tsx,vue}",
         "components.d.ts",
         "auto-imports.d.ts"
     ]

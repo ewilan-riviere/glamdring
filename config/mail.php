@@ -85,6 +85,14 @@ return [
         ],
     ],
 
+    'allowed' => [
+        'list' => explode(',', env('MAIL_ALLOWED_LIST', 'ewilan.riviere@gmail.com')),
+        'default' => env('MAIL_ALLOWED_DEFAULT', 'ewilan.riviere@gmail.com'),
+    ],
+    'ip' => [
+        'list' => explode(',', env('MAIL_IP_LIST', 'localhost,localhost:3000,127.0.0.1,127.0.0.1:8000,::1')),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Global "From" Address
@@ -99,6 +107,10 @@ return [
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
+    ],
+    'to' => [
+        'address' => env('MAIL_TO_ADDRESS', 'hello@example.com'),
+        'name' => env('MAIL_TO_NAME', 'Example'),
     ],
 
     /*

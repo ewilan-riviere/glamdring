@@ -196,8 +196,43 @@ echo "[*.{json,js,ts,vue,blade}]" >> .editorconfig
 echo "indent_size = 2" >> .editorconfig
 ```
 
+```bash
+cat > tsconfig.json << EOF
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "strict": true,
+        "jsx": "preserve",
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "noImplicitAny": false,
+        "lib": ["esnext", "dom"],
+        "types": ["vite/client"],
+        "typeRoots": ["./node_modules/@types", "resources/**/*.d.ts"],
+        "paths": {
+            "@/*": ["./resources/js/*"],
+            "@": ["./resources/js"]
+        }
+    },
+    "include": [
+        "resources/**/*.ts",
+        "resources/**/*.{js,jsx,ts,tsx,vue}",
+        "components.d.ts",
+        "auto-imports.d.ts"
+    ]
+}
+EOF
+```
+
 -   replace `app.js` with `app.ts`
 -   tasks
+-   typescriptable
+    -   "route" => "$route"
+    -   page.props.auth.user => page.props.user
 
 `package.json`
 

@@ -2721,16 +2721,16 @@
         },
         {
             "name": "kiwilan/typescriptable-laravel",
-            "version": "1.1.12",
+            "version": "1.1.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kiwilan/typescriptable-laravel.git",
-                "reference": "a5d1f64bda9cdc643c7c5ae493167ece81f64f99"
+                "reference": "3fc4a10277e3faf1b498b16ec0cebf9beb1b6a20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kiwilan/typescriptable-laravel/zipball/a5d1f64bda9cdc643c7c5ae493167ece81f64f99",
-                "reference": "a5d1f64bda9cdc643c7c5ae493167ece81f64f99",
+                "url": "https://api.github.com/repos/kiwilan/typescriptable-laravel/zipball/3fc4a10277e3faf1b498b16ec0cebf9beb1b6a20",
+                "reference": "3fc4a10277e3faf1b498b16ec0cebf9beb1b6a20",
                 "shasum": ""
             },
             "require": {
@@ -2798,9 +2798,9 @@
             ],
             "support": {
                 "issues": "https://github.com/kiwilan/typescriptable-laravel/issues",
-                "source": "https://github.com/kiwilan/typescriptable-laravel/tree/1.1.12"
+                "source": "https://github.com/kiwilan/typescriptable-laravel/tree/1.1.13"
             },
-            "time": "2023-03-14T17:35:51+00:00"
+            "time": "2023-03-14T18:26:41+00:00"
         },
         {
             "name": "laravel/fortify",

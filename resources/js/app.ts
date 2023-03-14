@@ -3,29 +3,25 @@ import '../css/app.css'
 
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
-
 import {
   InertiaTyped,
   appResolve,
   appTitle,
 } from '@kiwilan/typescriptable-laravel/vue'
+import './routes'
 
-import { Routes } from './routes'
-console.log(Routes)
+import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m'
 
 createInertiaApp({
-  // helper for setup title
-  title: title => appTitle(title, 'App'),
-  // helper for setup resolve
+  title: title => appTitle(title, 'Glamdring'),
   resolve: name =>
     appResolve(name, import.meta.glob('./Pages/**/*.vue', { eager: true })),
   setup({ el, App, props, plugin }) {
-    const app = createApp({ render: () => h(App, props) })
+    createApp({ render: () => h(App, props) })
       .use(plugin)
-    // add this line to use `useInertiaTyped` composable
+      .use(ZiggyVue)
       .use(InertiaTyped)
-
-    app.mount(el)
+      .mount(el)
   },
   progress: {
     delay: 250,
