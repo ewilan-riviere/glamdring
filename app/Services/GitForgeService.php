@@ -5,9 +5,9 @@ namespace App\Services;
 use App\Enums\GitForgeEnum;
 use App\Models\ForgeUser;
 use App\Models\Project;
-use App\Services\GitForgeService\GithubForge;
-use App\Services\GitForgeService\GitlabForge;
-use App\Services\GitForgeService\IGitForge;
+use App\Services\GitForge\GithubForge;
+use App\Services\GitForge\GitlabForge;
+use App\Services\GitForge\IGitForge;
 use Illuminate\Support\Collection;
 
 // id: int
