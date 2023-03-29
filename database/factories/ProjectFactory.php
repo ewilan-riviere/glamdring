@@ -19,6 +19,7 @@ class ProjectFactory extends Factory
     public function definition()
     {
         $name = $this->faker->words(asText: true);
+
         return [
             'git_id' => $this->faker->randomNumber(),
             'name' => ucfirst($name),

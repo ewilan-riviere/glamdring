@@ -207,6 +207,7 @@ class ProjectResource extends Resource
                                 ->options(function (Component $component) {
                                     /** @var Project */
                                     $model = $component->getRecord();
+
                                     return $model
                                         ->repositories
                                         ->pluck('forge_type', 'id')
@@ -219,6 +220,7 @@ class ProjectResource extends Resource
                                 ->options(function (Component $component) {
                                     /** @var Project */
                                     $model = $component->getRecord();
+
                                     return $model->websites->pluck('label', 'id');
                                 })
                                 ->label('Main repository'),

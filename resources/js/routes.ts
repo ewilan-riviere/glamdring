@@ -176,6 +176,12 @@ const Routes: Record<App.Route.Name, App.Route.Entity> = {
     params: undefined,
     method: 'GET',
   },
+  'api.submissions.create': {
+    name: 'api.submissions.create',
+    path: '/api/submissions',
+    params: undefined,
+    method: 'POST',
+  },
   '/': {
     name: '/',
     path: '/',

@@ -4,11 +4,9 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Laravel\Jetstream\Features;
 use Tests\TestCase;
 
-/**
- * @internal
- */
 class PasswordConfirmationTest extends TestCase
 {
     use RefreshDatabase;

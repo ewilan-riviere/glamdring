@@ -7,9 +7,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Jetstream\Features;
 use Tests\TestCase;
 
-/**
- * @internal
- */
 class DeleteAccountTest extends TestCase
 {
     use RefreshDatabase;

@@ -15,6 +15,7 @@ class DashboardController extends Controller
     {
         // Cache::flush();
         $service = Cache::get('service');
+
         if (! $service) {
             $service = GitForgeService::create();
             $service->fetchUser();
@@ -29,6 +30,7 @@ class DashboardController extends Controller
             /** @var User|null $user */
             $user = Auth::user();
             $token = '';
+
             if ($user) {
                 $token = $user->createToken('sanctum');
                 $token = $token->plainTextToken;

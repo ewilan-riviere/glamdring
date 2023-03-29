@@ -21,6 +21,7 @@ class TechnologySeeder extends Seeder
             $technology = Technology::create($technology);
 
             $path = database_path("seeders/media/technologies/{$technology->slug}.svg");
+
             if (File::exists($path)) {
                 $file = File::get($path);
                 File::put(public_path("storage/technologies/{$technology->slug}.svg"), $file);
