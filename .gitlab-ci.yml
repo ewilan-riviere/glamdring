@@ -17,6 +17,7 @@ tests:
   script:
     - git clone https://gitlab.com/ewilan-riviere/glamdring.git
     - cd glamdring
+    - composer install
     - ./vendor/bin/sail up
   # cache:
   #   key:
