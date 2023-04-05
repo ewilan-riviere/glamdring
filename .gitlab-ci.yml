@@ -20,7 +20,7 @@ tests:
     - php -v
     - cd glamdring
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && php composer-setup.php && php -r "unlink('composer-setup.php');"
-    - php composer.phar install
+    - php composer.phar install --ignore-platform-req=ext-gd --ignore-platform-req=ext-exif
     - ./vendor/bin/sail up
   # cache:
   #   key:
