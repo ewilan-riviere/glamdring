@@ -13,7 +13,7 @@ variables:
 
 tests:
   stage: test
-  image: composer:latest
+  image: php:8.2
   script:
     - git clone https://gitlab.com/ewilan-riviere/glamdring.git
     - php -v
