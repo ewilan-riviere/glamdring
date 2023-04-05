@@ -19,7 +19,8 @@ tests:
     - git clone https://gitlab.com/ewilan-riviere/glamdring.git
     - php -v
     - cd glamdring
-    - composer install
+    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && php composer-setup.php && php -r "unlink('composer-setup.php');"
+    - php composer.phar install
     - ./vendor/bin/sail up
   # cache:
   #   key:
