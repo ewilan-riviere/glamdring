@@ -13,19 +13,20 @@ variables:
 
 tests:
   stage: test
-  only:
-    refs:
-      - merge_requests
-      - push
-  cache:
-    key:
-      files:
-        - composer.lock
-    policy: pull
-  image: php:8.2
+  image: composer:latest
   script:
-    - composer install
-    - ./vendor/bin/pest
+    - git clone https://gitlab.com/ewilan-riviere/glamdring.git
+    - cd glamdring
+    - ./vendor/bin/sail up
+  # cache:
+  #   key:
+  #     files:
+  #       - composer.lock
+  #   policy: pull
+  # image: php:8.2
+  # script:
+  #   - composer install
+  #   - ./vendor/bin/pest
 
 deploy-job:
   stage: deploy
