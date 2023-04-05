@@ -12,7 +12,7 @@ variables:
   PHP_VERSION: "8.2"
 
 tests:
-  stage: test
+  stage: tests
   only:
     refs:
       - merge_requests
