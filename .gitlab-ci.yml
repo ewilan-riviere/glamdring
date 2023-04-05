@@ -13,7 +13,7 @@ variables:
 
 tests:
   stage: test
-  image: alpine:latest
+  image: php:zts-alpine3.17
   script:
     - apk add --no-cache git
     - git clone https://gitlab.com/ewilan-riviere/glamdring.git
