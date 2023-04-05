@@ -4,7 +4,7 @@
 # For more information, see: https://docs.gitlab.com/ee/ci/
 
 stages:
-  - tests
+  - test
   - deploy
 
 variables:
@@ -12,7 +12,7 @@ variables:
   PHP_VERSION: "8.2"
 
 tests:
-  stage: tests
+  stage: test
   only:
     refs:
       - merge_requests
