@@ -16,6 +16,7 @@ tests:
   image: composer:latest
   script:
     - git clone https://gitlab.com/ewilan-riviere/glamdring.git
+    - php -v
     - cd glamdring
     - composer install
     - ./vendor/bin/sail up
