@@ -24,6 +24,7 @@ tests:
     policy: pull
   image: php:8.2
   script:
+    - composer install
     - ./vendor/bin/pest
 
 deploy-job:
@@ -48,7 +49,6 @@ deploy-job:
       php$PHP_VERSION artisan scout:fresh &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm build &&
-      supervisorctl restart fictions-octane-worker:fictions-octane-worker_00 &&
       discord-queerotronic.sh '$CI_PROJECT_TITLE'"
   only:
     - main
