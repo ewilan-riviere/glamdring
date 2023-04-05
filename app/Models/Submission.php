@@ -10,16 +10,22 @@ class Submission extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'email',
-        'message',
+        'name', // Name of the sender
+        'email', // Email of the sender
+        'message', // Message of the sender
+        'extras', // Extra data
 
-        'app',
-        'to',
-        'honeypot',
+        'app_name', // App name
+        'send_to', // Email address to send to
+        'honeypot', // Honeypot field
 
-        'host',
-        'origin',
-        'ip',
+        'host', // Host of the request
+        'origin', // Origin of the request
+        'ip', // IP of the request
+    ];
+
+    protected $casts = [
+        'honeypot' => 'boolean',
+        'extras' => 'array',
     ];
 }

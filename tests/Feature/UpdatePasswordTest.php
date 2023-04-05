@@ -7,6 +7,9 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
+/**
+ * @internal
+ */
 class UpdatePasswordTest extends TestCase
 {
     use RefreshDatabase;

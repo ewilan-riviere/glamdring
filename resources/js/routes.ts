@@ -44,15 +44,23 @@ const Routes: Record<App.Route.Name, App.Route.Entity> = {
     params: undefined,
     method: 'POST',
   },
-  'register': {
-    name: 'register',
-    path: '/register',
+  'verification.notice': {
+    name: 'verification.notice',
+    path: '/email/verify',
     params: undefined,
     method: 'GET',
   },
-  'register': {
-    name: 'register',
-    path: '/register',
+  'verification.verify': {
+    name: 'verification.verify',
+    path: '/email/verify/{id}/{hash}',
+    params: {
+      id: 'string', hash: 'string',
+    },
+    method: 'GET',
+  },
+  'verification.send': {
+    name: 'verification.send',
+    path: '/email/verification-notification',
     params: undefined,
     method: 'POST',
   },
@@ -140,6 +148,18 @@ const Routes: Record<App.Route.Name, App.Route.Entity> = {
     params: undefined,
     method: 'POST',
   },
+  'terms.show': {
+    name: 'terms.show',
+    path: '/terms-of-service',
+    params: undefined,
+    method: 'GET',
+  },
+  'policy.show': {
+    name: 'policy.show',
+    path: '/privacy-policy',
+    params: undefined,
+    method: 'GET',
+  },
   'profile.show': {
     name: 'profile.show',
     path: '/user/profile',
@@ -164,15 +184,37 @@ const Routes: Record<App.Route.Name, App.Route.Entity> = {
     params: undefined,
     method: 'DELETE',
   },
-  'sanctum.csrf-cookie': {
-    name: 'sanctum.csrf-cookie',
-    path: '/sanctum/csrf-cookie',
+  'api-tokens.index': {
+    name: 'api-tokens.index',
+    path: '/user/api-tokens',
     params: undefined,
     method: 'GET',
   },
-  'api/user': {
-    name: 'api/user',
-    path: '/api/user',
+  'api-tokens.store': {
+    name: 'api-tokens.store',
+    path: '/user/api-tokens',
+    params: undefined,
+    method: 'POST',
+  },
+  'api-tokens.update': {
+    name: 'api-tokens.update',
+    path: '/user/api-tokens/{token}',
+    params: {
+      token: 'string',
+    },
+    method: 'PUT',
+  },
+  'api-tokens.destroy': {
+    name: 'api-tokens.destroy',
+    path: '/user/api-tokens/{token}',
+    params: {
+      token: 'string',
+    },
+    method: 'DELETE',
+  },
+  'sanctum.csrf-cookie': {
+    name: 'sanctum.csrf-cookie',
+    path: '/sanctum/csrf-cookie',
     params: undefined,
     method: 'GET',
   },
@@ -181,6 +223,12 @@ const Routes: Record<App.Route.Name, App.Route.Entity> = {
     path: '/api/submissions',
     params: undefined,
     method: 'POST',
+  },
+  'api/user': {
+    name: 'api/user',
+    path: '/api/user',
+    params: undefined,
+    method: 'GET',
   },
   '/': {
     name: '/',

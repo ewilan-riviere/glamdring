@@ -9,11 +9,12 @@ class StoreSubmissionRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-            'message' => 'required|string|min:50|max:1500',
-            'app' => 'nullable|string|max:255',
-            'to' => 'nullable|string|max:255',
+            'name' => 'nullable|string|max:255',
+            'email' => 'nullable|string|email|max:255',
+            'message' => 'required|string|max:1500',
+            'extras' => 'nullable|array',
+            'app_name' => 'nullable|string|max:255',
+            'send_to' => 'nullable|string|max:255',
             'honeypot' => 'nullable|boolean',
         ];
     }

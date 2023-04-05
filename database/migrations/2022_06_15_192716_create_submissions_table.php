@@ -16,10 +16,11 @@ return new class() extends Migration
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->text('message')->nullable();
+            $table->json('extras')->nullable();
 
-            $table->string('app')->nullable();
-            $table->string('to')->nullable();
-            $table->string('honeypot')->nullable();
+            $table->string('app_name')->nullable();
+            $table->string('send_to')->nullable();
+            $table->boolean('honeypot')->default(false);
 
             $table->string('host')->nullable();
             $table->string('origin')->nullable();

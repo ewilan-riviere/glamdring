@@ -20,9 +20,10 @@ class SubmissionFactory extends Factory
             'name' => $this->faker->name(),
             'email' => $this->faker->safeEmail(),
             'message' => $this->faker->paragraphs(3, true),
+            'extras' => $this->faker->words(5),
 
-            'app' => "{$this->faker->company()} testing",
-            'to' => config('mail.to.address'),
+            'app_name' => "{$this->faker->company()} testing",
+            'send_to' => config('mail.to.address'),
             'honeypot' => false,
 
             'host' => $this->faker->domainName(),

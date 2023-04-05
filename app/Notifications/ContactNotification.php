@@ -22,23 +22,19 @@ class ContactNotification extends Notification
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed  $notifiable
-     * @return array
+     * @return array<int, string>
      */
-    public function via($notifiable)
+    public function via(object $notifiable): array
     {
         return ['mail'];
     }
 
     /**
      * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
      */
-    public function toMail($notifiable)
+    public function toMail(object $notifiable): MailMessage
     {
-        return (new MailMessage())
+        return (new MailMessage)
             ->from($this->submission->email, $this->submission->name)
             ->level('info')
             ->subject("[{$this->submission->app}] New contact")
@@ -47,6 +43,8 @@ class ContactNotification extends Notification
             ->line("Email: {$this->submission->email}")
             ->line('Message:')
             ->line("{$this->submission->message}")
+            ->line('Extras:')
+            ->line(implode(', ', $this->submission->extras ?? 'No extras.'))
             ->salutation('Thanks.')
             ->action('View app', $this->submission->origin)
         ;
@@ -55,13 +53,15 @@ class ContactNotification extends Notification
     /**
      * Get the array representation of the notification.
      *
-     * @param  mixed  $notifiable
-     * @return array
+     * @return array<string, mixed>
      */
-    public function toArray($notifiable)
+    public function toArray(object $notifiable): array
     {
         return [
-            //
+            'name' => $this->submission->name,
+            'email' => $this->submission->email,
+            'message' => $this->submission->message,
+            'extras' => $this->submission->extras,
         ];
     }
 }
