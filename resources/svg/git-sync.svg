@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  aria-hidden="true"
+  role="img"
+  preserveAspectRatio="xMidYMid meet"
+  viewBox="0 0 256 256">
+  <path fill="currentColor"
+    d="M224 188a28 28 0 1 1-28-28a28 28 0 0 1 28 28ZM60 40a28 28 0 1 0 28 28a28 28 0 0 0-28-28Z"
+    opacity=".2"></path>
+  <path fill="currentColor"
+    d="M204 152.9v-33a55.5 55.5 0 0 0-16.4-39.6L163.3 56H184a8 8 0 0 0 0-16h-40a8 8 0 0 0-8 8v40a8 8 0 0 0 16 0V67.3l24.3 24.3a40 40 0 0 1 11.7 28.3v33a36 36 0 1 0 16 0Zm-8 55.1a20 20 0 1 1 20-20a20.1 20.1 0 0 1-20 20Zm-84-48a8 8 0 0 0-8 8v20.7l-24.3-24.3A40 40 0 0 1 68 136.1v-33a36 36 0 1 0-16 0v33a55.5 55.5 0 0 0 16.4 39.6L92.7 200H72a8 8 0 0 0 0 16h40a8 8 0 0 0 8-8v-40a8 8 0 0 0-8-8ZM40 68a20 20 0 1 1 20 20a20.1 20.1 0 0 1-20-20Z">
+  </path>
+</svg>
