@@ -27,13 +27,13 @@ deploy-job:
       cd /home/ewilan/www/$CI_PROJECT_NAME &&
       git pull &&
       composer install &&
-      composer test &&
-      php$PHP_VERSION artisan optimize:clear &&
-      composer i --no-dev &&
-      php$PHP_VERSION artisan optimize:fresh &&
-      php$PHP_VERSION artisan scout:fresh &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm build &&
+      composer test &&
+      php$PHP_VERSION artisan optimize:clear &&
+      php$PHP_VERSION artisan optimize:fresh &&
+      php$PHP_VERSION artisan scout:fresh &&
+      composer i --no-dev &&
       notify main '$CI_PROJECT_TITLE'"
   only:
     - main
