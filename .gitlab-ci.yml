@@ -15,15 +15,15 @@ variables:
 
 tests:
   stage: test
-  image: alpine:latest
+  image: bitnami/laravel:latest
   services:
     - mysql:latest
   script:
     - apk add --no-cache git curl
     - curl -sSLf \
-        -o /usr/local/bin/install-php-extensions \
-        https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions && \
-        chmod +x /usr/local/bin/install-php-extensions
+      -o /usr/local/bin/install-php-extensions \
+      https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions && \
+      chmod +x /usr/local/bin/install-php-extensions
     - install-php-extensions gd xdebug
     # - apk update && apk upgrade
     # - apk add nginx
@@ -57,15 +57,17 @@ deploy-job:
     - chmod 644 ~/.ssh/known_hosts
   script:
     - ssh $SSH_USER@$SSH_IP "
+      . ~/.zshrc &&
       cd /home/ewilan/www/$CI_PROJECT_NAME &&
       git pull &&
-      /usr/bin/php$PHP_VERSION /usr/local/bin/composer install &&
+      composer install &&
+      composer test &&
       php$PHP_VERSION artisan optimize:clear &&
-      /usr/bin/php$PHP_VERSION /usr/local/bin/composer i --no-dev &&
-      php$PHP_VERSION artisan setup:clean &&
+      composer i --no-dev &&
+      php$PHP_VERSION artisan optimize:fresh &&
       php$PHP_VERSION artisan scout:fresh &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm build &&
-      discord-queerotronic.sh '$CI_PROJECT_TITLE'"
+      notify main '$CI_PROJECT_TITLE'"
   only:
     - main
