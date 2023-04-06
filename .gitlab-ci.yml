@@ -10,6 +10,8 @@ stages:
 variables:
   NODE_VERSION: "18.12.1"
   PHP_VERSION: "8.2"
+  MYSQL_DATABASE: glamdring_testing
+  MYSQL_ROOT_PASSWORD: root
 
 tests:
   stage: test
@@ -18,11 +20,13 @@ tests:
     - mysql:latest
   script:
     - apk add --no-cache git
+    - https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+    - chmod +x /usr/local/bin/install-php-extensions && install-php-extensions gd xdebug
     # - apk update && apk upgrade
     # - apk add nginx
-    # - apk add php8.2 php8.2-mbstring php8.2-mysql php8.2-common php8.2-mysql php8.2-xml php8.2-curl php8.2-gd php8.2-imagick php8.2-cli php8.2-dev php8.2-imap php8.2-mbstring php8.2-opcache php8.2-soap php8.2-zip php8.2-intl php8.2-bz2
-    # - git clone https://gitlab.com/ewilan-riviere/glamdring.git
-    # - php -v
+    - apk add php8.2
+    - php -v
+    - git clone https://gitlab.com/ewilan-riviere/glamdring.git
     # - cd glamdring
     # - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && php composer-setup.php && php -r "unlink('composer-setup.php');"
     # - php composer.phar install --ignore-platform-req=ext-gd --ignore-platform-req=ext-exif
