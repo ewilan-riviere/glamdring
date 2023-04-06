@@ -2,11 +2,9 @@
 
 namespace App\Providers;
 
-use Filament\Facades\Filament;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use LogViewer;
+use Opcodes\LogViewer\Facades\LogViewer;
 
 class AppServiceProvider extends ServiceProvider
 {

@@ -55,13 +55,13 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
-    'asset_url' => env('ASSET_URL'),
-
     'admin' => [
         'email' => env('APP_ADMIN_EMAIL', 'superadmin@example.com'),
         'password' => env('APP_ADMIN_PASSWORD', 'password'),
         'domains' => explode(',', env('APP_ADMIN_DOMAINS', 'example.com,domain.com')),
     ],
+
+    'asset_url' => env('ASSET_URL'),
 
     /*
     |--------------------------------------------------------------------------

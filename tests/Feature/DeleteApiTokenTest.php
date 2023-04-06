@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
+use Laravel\Jetstream\Http\Livewire\ApiTokenManager;
+use Livewire\Livewire;
 use Tests\TestCase;
 
 /**
@@ -31,7 +33,10 @@ class DeleteApiTokenTest extends TestCase
             'abilities' => ['create', 'read'],
         ]);
 
-        $response = $this->delete('/user/api-tokens/'.$token->id);
+        Livewire::test(ApiTokenManager::class)
+            ->set(['apiTokenIdBeingDeleted' => $token->id])
+            ->call('deleteApiToken')
+        ;
 
         $this->assertCount(0, $user->fresh()->tokens);
     }

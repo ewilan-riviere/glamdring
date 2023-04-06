@@ -61,16 +61,6 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessFilament(): bool
     {
-        // $domain = explode('@', $this->email);
-        // $domain = $domain[sizeof($domain)-1];
-
-        // if (!$this->hasVerifiedEmail()) {
-        //     return false;
-        // }
-
-        // if (in_array($domain, config('app.admin.domains'))) {
-        //     return true;
-        // }
         return true;
     }
 }

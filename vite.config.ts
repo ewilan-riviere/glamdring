@@ -1,24 +1,17 @@
 import { defineConfig } from 'vite'
-import laravel from 'laravel-vite-plugin'
-import vue from '@vitejs/plugin-vue'
-import { Typescriptable } from '@kiwilan/typescriptable-laravel'
+import laravel, { refreshPaths } from 'laravel-vite-plugin'
 
 export default defineConfig({
   plugins: [
     laravel({
-      input: 'resources/js/app.ts',
-      refresh: true,
-    }),
-    vue({
-      template: {
-        transformAssetUrls: {
-          base: null,
-          includeAbsolute: false,
-        },
-      },
-    }),
-    Typescriptable({
-      // Options
+      input: [
+        'resources/css/app.css',
+        'resources/js/app.js',
+      ],
+      refresh: [
+        ...refreshPaths,
+        'app/Http/Livewire/**',
+      ],
     }),
   ],
 })
