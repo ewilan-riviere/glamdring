@@ -13,15 +13,20 @@ variables:
 
 tests:
   stage: test
-  image: php:zts-alpine3.17
+  image: alpine:latest
+  services:
+    - mysql:latest
   script:
     - apk add --no-cache git
-    - git clone https://gitlab.com/ewilan-riviere/glamdring.git
-    - php -v
-    - cd glamdring
-    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && php composer-setup.php && php -r "unlink('composer-setup.php');"
-    - php composer.phar install --ignore-platform-req=ext-gd --ignore-platform-req=ext-exif
-    - ./vendor/bin/sail up
+    # - apk update && apk upgrade
+    # - apk add nginx
+    # - apk add php8.2 php8.2-mbstring php8.2-mysql php8.2-common php8.2-mysql php8.2-xml php8.2-curl php8.2-gd php8.2-imagick php8.2-cli php8.2-dev php8.2-imap php8.2-mbstring php8.2-opcache php8.2-soap php8.2-zip php8.2-intl php8.2-bz2
+    # - git clone https://gitlab.com/ewilan-riviere/glamdring.git
+    # - php -v
+    # - cd glamdring
+    # - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && php composer-setup.php && php -r "unlink('composer-setup.php');"
+    # - php composer.phar install --ignore-platform-req=ext-gd --ignore-platform-req=ext-exif
+    # - ./vendor/bin/sail up
   # cache:
   #   key:
   #     files:
