@@ -11,7 +11,7 @@ variables:
 
 deploy-job:
   stage: deploy
-  image: sail-8.2/app
+  image: sail-8.2
   script:
     - echo "Deploying to production"
     - php -v
