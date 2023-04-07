@@ -27,9 +27,9 @@ class SubmissionController extends Controller
         }
 
         $submission = Submission::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'message' => $validated['message'],
+            'name' => $validated['name'] ?? null,
+            'email' => $validated['email'] ?? null,
+            'message' => $validated['message'] ?? null,
             'extras' => $validated['extras'] ?? null,
 
             'app_name' => $appName,
@@ -41,9 +41,11 @@ class SubmissionController extends Controller
             'ip' => $request->ip(),
         ]);
 
-        Notification::route('mail', config('mail.to.address'))
-            ->notify(new ContactNotification($submission))
-        ;
+        ray(config('mail.to.address'), config('mail.to.name'));
+        Notification::route('mail', [
+            // config('mail.to.address') => config('mail.to.name'),
+            'ewilan@mail.com' => 'Ewilan',
+        ])->notify(new ContactNotification($submission));
 
         return response()->json([
             'success' => true,

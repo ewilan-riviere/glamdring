@@ -34,17 +34,24 @@ class ContactNotification extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
+        $extras = $this->submission->extras
+            ? implode(', ', $this->submission->extras)
+            : 'None';
+
+        $email = $this->submission->email ?? config('mail.from.address');
+        $name = $this->submission->name ?? config('mail.from.name');
+
         return (new MailMessage)
-            ->from($this->submission->email, $this->submission->name)
+            ->from($email, $name)
             ->level('info')
-            ->subject("[{$this->submission->app}] New contact")
+            ->subject("[{$this->submission->app_name}] New contact")
             ->greeting('Hello,')
             ->line("A new contact is submitted by {$this->submission->name}.")
             ->line("Email: {$this->submission->email}")
             ->line('Message:')
             ->line("{$this->submission->message}")
             ->line('Extras:')
-            ->line(implode(', ', $this->submission->extras ?? 'No extras.'))
+            ->line($extras)
             ->salutation('Thanks.')
             ->action('View app', $this->submission->origin)
         ;
