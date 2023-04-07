@@ -8,15 +8,32 @@ stages:
 
 variables:
   NODE_VERSION: "18.12.1"
+  PHP_VERSION: "8.2"
 
 deploy-job:
   stage: deploy
-  image: sail-8.2
+  image: ewilanriviere/laravel-docker
+  before_script:
+    - "command -v ssh-agent >/dev/null || ( apk add --update openssh )"
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan $SSH_IP >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
   script:
-    - echo "Deploying to production"
-    - php -v
-    - git clone https://gitlab.com/ewilan-riviere/glamdring.git
-    - cd glamdring
-    - composer install
+    - ssh $SSH_USER@$SSH_IP "
+      . ~/.zshrc &&
+      cd /home/ewilan/www/$CI_PROJECT_NAME &&
+      git pull &&
+      composer install &&
+      /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
+      /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm build &&
+      composer test &&
+      php$PHP_VERSION artisan optimize:clear &&
+      php$PHP_VERSION artisan optimize:fresh &&
+      php$PHP_VERSION artisan scout:fresh &&
+      composer i --no-dev &&
+      notify main '$CI_PROJECT_TITLE deployed'"
   only:
     - main
