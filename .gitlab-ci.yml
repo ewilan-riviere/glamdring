@@ -13,6 +13,8 @@ variables:
 deploy-job:
   stage: deploy
   image: ewilanriviere/laravel-docker
+  services:
+    - mysql:8.0
   script:
     - git clone https://gitlab.com/ewilan-riviere/glamdring.git
     - cd glamdring
