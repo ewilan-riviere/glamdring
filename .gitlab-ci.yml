@@ -14,7 +14,7 @@ deploy-job:
   image: php:8.2-cli
   script:
     - echo "Deploying to production"
-    - apt update
+    - apt update && apt install -y git
     - php -v
     - git clone https://gitlab.com/ewilan-riviere/glamdring.git
     - cd glamdring
