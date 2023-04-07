@@ -5,24 +5,23 @@
 
 stages:
   - deploy
+# variables:
+#   NODE_VERSION: "18.12.1"
+#   PHP_VERSION: "8.2"
+#   MYSQL_DATABASE: "glamdring"
+#   MYSQL_ROOT_PASSWORD: "root"
+#   MYSQL_USER: "root"
+#   MYSQL_PASSWORD: "root"
+#   MYSQL_HOST: mysql
 
-variables:
-  NODE_VERSION: "18.12.1"
-  PHP_VERSION: "8.2"
-  MYSQL_DATABASE: "glamdring"
-  MYSQL_ROOT_PASSWORD: "root"
-  MYSQL_USER: "root"
-  MYSQL_PASSWORD: "root"
-  MYSQL_HOST: mysql
-
-deploy-job:
-  stage: deploy
-  image: ewilanriviere/laravel-docker
-  services:
-    - mysql:8.0
-  script:
-    - git clone https://gitlab.com/ewilan-riviere/glamdring.git
-    - cd glamdring
-    - composer install
-  only:
-    - main
+# deploy-job:
+#   stage: deploy
+#   image: ewilanriviere/laravel-docker
+#   services:
+#     - mysql:8.0
+#   script:
+#     - git clone https://gitlab.com/ewilan-riviere/glamdring.git
+#     - cd glamdring
+#     - composer install
+#   only:
+#     - main
