@@ -14,8 +14,6 @@ deploy-job:
   stage: deploy
   image: ewilanriviere/laravel-docker
   script:
-    - php -v
-    - composer -v
     - git clone https://gitlab.com/ewilan-riviere/glamdring.git
     - cd glamdring
     - composer install
