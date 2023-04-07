@@ -15,5 +15,8 @@ deploy-job:
   script:
     - echo "Deploying to production"
     - php -v
+    - git clone https://gitlab.com/ewilan-riviere/glamdring.git
+    - cd glamdring
+    - composer install
   only:
     - main
