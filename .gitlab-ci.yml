@@ -16,6 +16,7 @@ test-job:
   script:
     - git clone https://gitlab.com/ewilan-riviere/glamdring.git
     - cd glamdring
+    - php -v
     - composer install
   only:
     - main
