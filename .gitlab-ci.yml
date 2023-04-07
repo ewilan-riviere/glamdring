@@ -9,6 +9,11 @@ stages:
 variables:
   NODE_VERSION: "18.12.1"
   PHP_VERSION: "8.2"
+  MYSQL_DATABASE: "glamdring"
+  MYSQL_ROOT_PASSWORD: "root"
+  MYSQL_USER: "root"
+  MYSQL_PASSWORD: "root"
+  MYSQL_HOST: mysql
 
 deploy-job:
   stage: deploy
