@@ -34,6 +34,6 @@ deploy-job:
       php$PHP_VERSION artisan optimize:fresh &&
       php$PHP_VERSION artisan scout:fresh &&
       composer i --no-dev &&
-      notify main '$CI_PROJECT_TITLE'"
+      notify main '$CI_PROJECT_TITLE deployed'"
   only:
     - main
