@@ -25,6 +25,7 @@ return new class() extends Migration
             $table->string('host')->nullable();
             $table->string('origin')->nullable();
             $table->string('ip')->nullable();
+            $table->boolean('failed')->default(false);
 
             $table->timestamps();
         });

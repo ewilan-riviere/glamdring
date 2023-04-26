@@ -22,10 +22,12 @@ class Submission extends Model
         'host', // Host of the request
         'origin', // Origin of the request
         'ip', // IP of the request
+        'failed', // Failed to send
     ];
 
     protected $casts = [
         'honeypot' => 'boolean',
+        'failed' => 'boolean',
         'extras' => 'array',
     ];
 }

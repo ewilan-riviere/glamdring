@@ -22,10 +22,6 @@ class SubmissionController extends Controller
         $sendTo = $validated['send_to'] ?? config('mail.allowed.default');
         $honeypot = $validated['honeypot'] ?? false;
 
-        if (! in_array($sendTo, config('mail.allowed.list')) || $honeypot) {
-            return $this->fakeResponse();
-        }
-
         $submission = Submission::create([
             'name' => $validated['name'] ?? null,
             'email' => $validated['email'] ?? null,
@@ -41,7 +37,12 @@ class SubmissionController extends Controller
             'ip' => $request->ip(),
         ]);
 
-        ray(config('mail.to.address'), config('mail.to.name'));
+        if (! in_array($sendTo, config('mail.allowed.list')) || $honeypot) {
+            $submission->failed = true;
+
+            return $this->fakeResponse($sendTo, $honeypot);
+        }
+
         Notification::route('mail', [
             // config('mail.to.address') => config('mail.to.name'),
             'ewilan@mail.com' => 'Ewilan',
@@ -53,13 +54,17 @@ class SubmissionController extends Controller
         ]);
     }
 
-    public function fakeResponse()
+    public function fakeResponse(string $sendTo, bool $honeypot)
     {
         sleep(1);
 
         return response()->json([
             'success' => false,
             'message' => 'Submission failed.',
+            'reasons' => [
+                'send_to' => $sendTo,
+                'honeypot' => $honeypot,
+            ],
         ], 202);
     }
 }
