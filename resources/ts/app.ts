@@ -5,6 +5,7 @@ import Alpine from 'alpinejs'
 // import ziggy from 'ziggy-js'
 import Media from './modules/media'
 import ColorMode from './modules/color-mode'
+
 // import favicon from './modules/favicon'
 import Tiptap from './modules/tiptap'
 import Dialog from './modules/dialog'

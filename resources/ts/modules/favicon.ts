@@ -1,4 +1,4 @@
-const favicon = () => {
+function favicon() {
   document.addEventListener('DOMContentLoaded', () => {
     const link = document.querySelector('link[rel~=\'icon\']') as HTMLLinkElement
     const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches

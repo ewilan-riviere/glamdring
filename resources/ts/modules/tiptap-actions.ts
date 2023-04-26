@@ -480,7 +480,7 @@ export const Extras: IExtras = {
 //   })
 // }
 
-const setLink = (editor: Editor) => {
+function setLink(editor: Editor) {
   const previousUrl = editor.getAttributes('link').href
   // eslint-disable-next-line no-alert
   const url = window.prompt('URL', previousUrl)
@@ -507,7 +507,7 @@ const setLink = (editor: Editor) => {
     .run()
 }
 
-export const ExecuteCommand = (editor: Editor, action: ActionButton) => {
+export function ExecuteCommand(editor: Editor, action: ActionButton) {
   switch (action.command) {
     case 'bold':
       // https://tiptap.dev/api/marks/bold

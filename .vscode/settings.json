@@ -1,14 +1,14 @@
 {
-    // "prettier.enable": false,
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
-    "LaravelExtraIntellisense.modelVariables": {
-        "project": "App\\Models\\Project",
-        "submission": "App\\Models\\Submission",
-        "forge_user": "App\\Models\\ForgeUser"
-    },
-    "dotenv.enableAutocloaking": false,
-    "laravel-pint.configPath": "vendor/kiwilan/steward-laravel/pint.json",
-    "typescript.tsdk": "node_modules/typescript/lib"
+  // "prettier.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "LaravelExtraIntellisense.modelVariables": {
+    "project": "App\\Models\\Project",
+    "submission": "App\\Models\\Submission",
+    "forge_user": "App\\Models\\ForgeUser"
+  },
+  "dotenv.enableAutocloaking": false,
+  "laravel-pint.configPath": "vendor/kiwilan/steward-laravel/pint.json",
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

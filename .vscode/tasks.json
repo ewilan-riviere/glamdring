@@ -1,27 +1,27 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "Pint Formatter",
-            "type": "shell",
-            "command": "./vendor/bin/pint",
-            "problemMatcher": [],
-            "presentation": {
-                "reveal": "silent"
-            },
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        },
-        {
-            "label": "NPM dev",
-            "type": "shell",
-            "command": "pnpm dev",
-            "problemMatcher": [],
-            "presentation": {
-                "reveal": "silent"
-            }
-        }
-    ]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Pint Formatter",
+      "type": "shell",
+      "command": "./vendor/bin/pint",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "NPM dev",
+      "type": "shell",
+      "command": "pnpm dev",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent"
+      }
+    }
+  ]
 }
